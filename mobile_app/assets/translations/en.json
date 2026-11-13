@@ -1,0 +1,46 @@
+
+{
+  "splashScreen": {
+    "description_app": "AI focus monitoring system",
+    "syncing": "SYNCING YOUR SIGNALS",
+    "language": "Change language",
+    "mode": "Change mode"
+  },
+  
+  "chooseScreen":{
+     "patient":"Patient",
+     "companion":"Companion"
+  },
+
+  "loginScreen":{
+    "welcome":"Welcome Back",
+    "descriptionlogin":"Sign in to continue (caregiver)",
+    "hintemail": "Enter your email",
+    "hintpassword": "Enter your password",
+     "invalidemail":"Invalid email",
+    "inavlidpass": "Min 6 characters" ,
+    "textforget":"Forget password ?",
+    "buttonlogin":"Sign In",
+    "or":"OR",
+    "buttongoogle":"Continue with Google",
+    "askaccount":"Don't have an account?",
+    "createaccount":"Create Account"
+  },
+
+  "registerScreen":{
+     "createaccount":"Create Account",
+    "descriptionregister": "Caregiver account",
+    "name":"Full Name",
+    "hintemail": "Enter your email",
+    "hintpassword": "Enter your password",
+    "hintconfirmpass": "Confirm Password",
+    "invalidemail":"Invalid email",
+    "inavlidpass": "Min 6 characters" ,
+    "invalidnum":"Min 12 characters",
+    "hintemergency": "Emergency number",
+    "askaccount": "Have an account?",
+    "signin":"Login"
+  }
+
+
+}

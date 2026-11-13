@@ -1,0 +1,27 @@
+
+# Node.js
+**/node_modules/
+
+# Environment variables
+**/.env
+**/.env.*
+!**/.env.example
+
+# Flutter and Dart
+**/.dart_tool/
+**/.pub-cache/
+**/build/
+**/.flutter-plugins-dependencies
+
+# Android signing secrets
+**/*.jks
+**/*.keystore
+**/key.properties
+
+# Firebase private credentials
+**/service-account*.json
+
+# Logs
+*.log
+npm-debug.log*
+

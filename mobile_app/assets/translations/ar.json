@@ -1,0 +1,45 @@
+
+{
+  "splashScreen": {
+    "description_app": "نظام ذكي لمراقبة التركيز",
+    "syncing": "جارٍ مزامنة إشاراتك",
+    "language": "تغيير اللغة",
+    "mode": "تغيير الوضع"
+  },
+
+   "chooseScreen":{
+     "patient":"المريض",
+     "companion":"المرافق"
+  },
+  
+  
+  "loginScreen": {
+    "welcome": "مرحبًا بعودتك",
+    "descriptionlogin": "سجّل الدخول للمتابعة (المرافق)",
+    "hintemail": "أدخل البريد الإلكتروني",
+    "hintpassword": "أدخل كلمة المرور",
+    "invalidemail": "البريد الإلكتروني غير صالح",
+    "inavlidpass": "يجب ألا تقل كلمة المرور عن 6 أحرف",
+    "textforget": "هل نسيت كلمة المرور؟",
+    "buttonlogin": "تسجيل الدخول",
+    "or": "أو",
+    "buttongoogle": "المتابعة باستخدام Google",
+    "askaccount": "ليس لديك حساب؟",
+    "createaccount": "إنشاء حساب"
+  },
+
+  "registerScreen": {
+    "createaccount": "إنشاء حساب",
+    "descriptionregister": "حساب المرافق",
+    "name": "الاسم بالكامل",
+    "hintemail": "أدخل البريد الإلكتروني",
+    "hintpassword": "أدخل كلمة المرور",
+    "hintconfirmpass": "تأكيد كلمة المرور",
+    "invalidemail": "البريد الإلكتروني غير صالح",
+    "inavlidpass": "يجب ألا تقل كلمة المرور عن 6 أحرف",
+    "invalidnum": "يجب ألا يقل الرقم عن 12 رقمًا",
+    "hintemergency": "رقم الطوارئ",
+    "askaccount": "لديك حساب بالفعل؟",
+    "signin": "تسجيل الدخول"
+  }
+}

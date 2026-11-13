@@ -1,0 +1,35 @@
+
+# VS Code
+.vscode/
+
+# IntelliJ / Android Studio
+**/.idea/
+**/*.iml
+
+# Node.js
+**/node_modules/
+
+# Environment variables
+**/.env
+**/.env.*
+!**/.env.example
+
+# Flutter / Dart
+**/.dart_tool/
+**/.pub-cache/
+**/build/
+**/.flutter-plugins-dependencies
+
+# Android signing
+**/*.jks
+**/*.keystore
+**/key.properties
+
+# Firebase private credentials
+**/service-account*.json
+
+# Logs and system files
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
