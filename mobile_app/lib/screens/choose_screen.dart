@@ -25,7 +25,7 @@ class ChooseScreen extends StatelessWidget {
               Expanded(
                 child: _RoleCard(
                   title: LocaleKeys.chooseScreen_patient.tr(),
-                  imagePath: 'assets/images/icons8-wheelchair-48.png',
+                  imagePath: 'assets/images/patient.png',
                   iconSize: size.height * 0.28,
                   onTap: () => context.pushNamed(AppRoutes.loginScreen),
                 )
@@ -37,11 +37,11 @@ class ChooseScreen extends StatelessWidget {
               Expanded(
                 child: _RoleCard(
                   title: LocaleKeys.chooseScreen_companion.tr(),
-                  imagePath: 'assets/images/icons8-nurse-48.png',
+                  imagePath: 'assets/images/nurse.jpg',
                   iconSize: size.height * 0.28,
                   onTap: () => context.pushNamed('companion'),
                 )
-                    .animate(delay: 250.ms) // يتأخر عن الأول
+                    .animate(delay: 250.ms) 
                     .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
                     .slideY(begin: 0.15, end: 0, duration: 600.ms),
               ),
