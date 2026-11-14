@@ -37,7 +37,7 @@ class ChooseScreen extends StatelessWidget {
               Expanded(
                 child: _RoleCard(
                   title: LocaleKeys.chooseScreen_companion.tr(),
-                  imagePath: 'assets/images/nurse.jpg',
+                  imagePath: 'assets/images/nurse.png',
                   iconSize: size.height * 0.28,
                   onTap: () => context.pushNamed('companion'),
                 )
