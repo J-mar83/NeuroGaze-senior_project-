@@ -71,6 +71,7 @@ class _RoleCard extends StatelessWidget {
     return Card(
       elevation: 4,
       clipBehavior: Clip.antiAlias,
+    
       child: InkWell(
         onTap: onTap,
         child: Column(

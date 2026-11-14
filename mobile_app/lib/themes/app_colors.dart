@@ -5,13 +5,15 @@ class AppColors {
   static const Color backgroundcolorDark = Color.fromARGB(255, 24, 36, 77);
   static const Color textcolorDark = Color(0xFFFFFFFF);
   static const Color buttoncolorDark = Color(0xFF3B6BFF);
-  static const Color containercolorDark = Color.fromARGB(255, 40, 73, 139);
+  static const Color containercolorDark = Color.fromARGB(255, 30, 64, 130);
+  static const Color bordercontainercolorDark = Color.fromARGB(255, 40, 73, 139);
 
   // Light Theme
   static const Color backgroundcolorLight = Color(0xFFDCCCB5);
   static const Color textcolorLight = Color(0xFF000000);
   static const Color buttoncolorLight = Color(0xFF2F5BEA);
   static const Color containercolorLight = Color(0xFFEFE1CF);
+  static const Color bordercontainercolorLight = Color.fromARGB(255, 144, 127, 105);
 
   // Common Colors
   static const Color primaryColor = Color(0xFF3B6BFF);

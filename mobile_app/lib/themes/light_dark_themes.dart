@@ -5,6 +5,7 @@ import 'package:mobile_app/themes/app_colors.dart';
 class LightThemes {
   static ThemeData theme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
+      outline: AppColors.bordercontainercolorLight,
       seedColor: AppColors.primaryColor,
       brightness: Brightness.light,
     ),
@@ -32,7 +33,11 @@ class LightThemes {
 
     cardTheme: CardThemeData(
       color: AppColors.containercolorLight,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
+        side: BorderSide(color: AppColors.bordercontainercolorLight,width: 3),
+      ),
+      
     ),
 
     inputDecorationTheme: InputDecorationTheme(
@@ -61,6 +66,7 @@ class LightThemes {
 class DarkThemes {
   static ThemeData theme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
+      outline: AppColors.bordercontainercolorLight,
       seedColor: AppColors.primaryColor,
       brightness: Brightness.dark,
     ),
@@ -88,12 +94,11 @@ class DarkThemes {
     cardTheme: CardThemeData(
       color: AppColors.containercolorDark,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(color:Colors.blueGrey,width:3),
+        borderRadius: BorderRadius.circular(25),
+        side: BorderSide(color: AppColors.bordercontainercolorDark,width: 3),
+      ),
       ),
       
-    ),
-
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.containercolorDark,

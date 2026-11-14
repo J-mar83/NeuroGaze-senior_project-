@@ -105,10 +105,11 @@ class _LoginscreenState extends State<Loginscreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                        //  routers to homepage
+                      context.pushNamed(AppRoutes.basicCommandScreen);
+                        // if (_formKey.currentState!.validate()) {
+                        
                       
-                        }
+                        // }
                       },
                       child:Text(LocaleKeys.loginScreen_buttonlogin.tr()),
                     ),
