@@ -10,11 +10,11 @@ class BasicCommands extends StatelessWidget {
   const BasicCommands({super.key});
 
   // مكان واحد لتعديل الكروت: العنوان، الأيقونة، الروت
-  static const _commands = <({String title, String icon, String route})>[
-    (title: 'Needs',   icon: 'assets/images/needs.png', route: AppRoutes.loginScreen),
-    (title: 'Care',    icon: 'assets/images/patient.png', route: AppRoutes.loginScreen),
-    (title: 'Comfort', icon: 'assets/images/patient.png', route: AppRoutes.loginScreen),
-    (title: 'Talk',    icon: 'assets/images/patient.png', route: AppRoutes.loginScreen),
+  static final _commands = <({String title, String icon, String route})>[
+    (title: LocaleKeys.basicCommandsScreen_needsCommand.tr(), icon: 'assets/images/needs.png', route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_careCommand.tr(), icon: 'assets/images/care.png', route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_comfortCommand.tr(), icon: 'assets/images/comfort.png', route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_talkCommand.tr(),    icon: 'assets/images/talks.png', route: AppRoutes.loginScreen),
   ];
 
   @override
@@ -41,11 +41,11 @@ class BasicCommands extends StatelessWidget {
                     height: 50,
                   ),
                   Text(
-                    'look at a card to open it',
+                    LocaleKeys.basicCommandsScreen_titleOfPage.tr(),
                     style: theme.textTheme.labelMedium,
                   ),
                 ],
-              ).animate().fadeIn(duration: 500.ms),
+              ).animate(delay: 5.ms).fadeIn(duration: 600.ms, curve: Curves.easeOutCubic).slideX(begin: 0.15, end: 0, duration: 600.ms),
 
               const SizedBox(height: space),
 
@@ -86,10 +86,10 @@ class BasicCommands extends StatelessWidget {
                     color: Colors.white,
                     size: 25,
                   ),
-                  label: Text('Emergency', style: theme.textTheme.labelMedium),
+                  label: Text(LocaleKeys.basicCommandsScreen_emergencyCommand.tr(), style: theme.textTheme.labelMedium),
                 ),
 
-              ),
+              ).animate(delay: 5.ms).fadeIn(duration: 600.ms, curve: Curves.easeOutCubic).slideX(begin: 0.15, end: 0, duration: 600.ms),
             ],
           ),
         ),

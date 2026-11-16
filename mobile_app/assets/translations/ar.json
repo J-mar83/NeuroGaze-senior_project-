@@ -12,7 +12,6 @@
      "companion":"المرافق"
   },
   
-  
   "loginScreen": {
     "welcome": "مرحبًا بعودتك",
     "descriptionlogin": "سجّل الدخول للمتابعة (المرافق)",
@@ -41,5 +40,16 @@
     "hintemergency": "رقم الطوارئ",
     "askaccount": "لديك حساب بالفعل؟",
     "signin": "تسجيل الدخول"
-  }
+  },
+
+  "basicCommandsScreen": {
+  "titleOfPage": "انظر إلى البطاقة لفتحها",
+  "needsCommand": "الاحتياجات",
+  "careCommand": "الرعاية",
+  "comfortCommand": "الراحة",
+  "talkCommand": "التحدث",
+  "emergencyCommand": "الطوارئ"
+}
+
+
 }

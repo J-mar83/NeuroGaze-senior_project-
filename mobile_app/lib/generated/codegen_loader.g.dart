@@ -52,6 +52,14 @@ class CodegenLoader extends AssetLoader{
     "hintemergency": "رقم الطوارئ",
     "askaccount": "لديك حساب بالفعل؟",
     "signin": "تسجيل الدخول"
+  },
+  "basicCommandsScreen": {
+    "titleOfPage": "انظر إلى البطاقة لفتحها",
+    "needsCommand": "الاحتياجات",
+    "careCommand": "الرعاية",
+    "comfortCommand": "الراحة",
+    "talkCommand": "التحدث",
+    "emergencyCommand": "الطوارئ"
   }
 };
 static const Map<String,dynamic> _en = {
@@ -92,6 +100,14 @@ static const Map<String,dynamic> _en = {
     "hintemergency": "Emergency number",
     "askaccount": "Have an account?",
     "signin": "Login"
+  },
+  "basicCommandsScreen": {
+    "titleOfPage": "look at a card to open it",
+    "needsCommand": "Needs",
+    "careCommand": "Care",
+    "comfortCommand": "Comfort",
+    "talkCommand": "Talk",
+    "emergencyCommand": "Emergency"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};

@@ -40,6 +40,15 @@
     "hintemergency": "Emergency number",
     "askaccount": "Have an account?",
     "signin":"Login"
+  },
+
+  "basicCommandsScreen":{
+    "titleOfPage":"look at a card to open it",
+    "needsCommand":"Needs",
+    "careCommand":"Care",
+    "comfortCommand":"Comfort",
+    "talkCommand":"Talk",
+    "emergencyCommand":"Emergency"
   }
 
 

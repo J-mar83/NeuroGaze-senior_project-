@@ -12,7 +12,7 @@ abstract class  LocaleKeys {
   static const chooseScreen_patient = 'chooseScreen.patient';
   static const chooseScreen_companion = 'chooseScreen.companion';
   static const chooseScreen = 'chooseScreen';
-
+  
   static const loginScreen_welcome = 'loginScreen.welcome';
   static const loginScreen_descriptionlogin = 'loginScreen.descriptionlogin';
   static const loginScreen_hintemail = 'loginScreen.hintemail';
@@ -40,5 +40,13 @@ abstract class  LocaleKeys {
   static const registerScreen_askaccount = 'registerScreen.askaccount';
   static const registerScreen_signin = 'registerScreen.signin';
   static const registerScreen = 'registerScreen';
+
+  static const basicCommandsScreen_titleOfPage = 'basicCommandsScreen.titleOfPage';
+  static const basicCommandsScreen_needsCommand = 'basicCommandsScreen.needsCommand';
+  static const basicCommandsScreen_careCommand = 'basicCommandsScreen.careCommand';
+  static const basicCommandsScreen_comfortCommand = 'basicCommandsScreen.comfortCommand';
+  static const basicCommandsScreen_talkCommand = 'basicCommandsScreen.talkCommand';
+  static const basicCommandsScreen_emergencyCommand = 'basicCommandsScreen.emergencyCommand';
+  static const basicCommandsScreen = 'basicCommandsScreen';
 
 }

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // Dark Theme
-  static const Color backgroundcolorDark = Color.fromARGB(255, 24, 36, 77);
+  static const Color backgroundcolorDark = Color(0xff070B1A);
   static const Color textcolorDark = Color(0xFFFFFFFF);
   static const Color buttoncolorDark = Color(0xFF3B6BFF);
-  static const Color containercolorDark = Color.fromARGB(255, 30, 64, 130);
-  static const Color bordercontainercolorDark = Color.fromARGB(255, 40, 73, 139);
+  static const Color containercolorDark = Color.fromARGB(255, 66, 77, 95);
+  static const Color bordercontainercolorDark = Color.fromARGB(255, 93, 140, 235);
 
   // Light Theme
   static const Color backgroundcolorLight = Color(0xFFDCCCB5);
