@@ -38,6 +38,7 @@ abstract class  LocaleKeys {
   static const registerScreen_invalidnum = 'registerScreen.invalidnum';
   static const registerScreen_hintemergency = 'registerScreen.hintemergency';
   static const registerScreen_askaccount = 'registerScreen.askaccount';
+   static const registerScreen_register = 'registerScreen.register';
   static const registerScreen_signin = 'registerScreen.signin';
   static const registerScreen = 'registerScreen';
 

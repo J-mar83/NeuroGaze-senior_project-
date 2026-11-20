@@ -39,7 +39,8 @@
     "invalidnum": "يجب ألا يقل الرقم عن 12 رقمًا",
     "hintemergency": "رقم الطوارئ",
     "askaccount": "لديك حساب بالفعل؟",
-    "signin": "تسجيل الدخول"
+    "signin": "تسجيل الدخول",
+    "register":"إنشاء حساب"
   },
 
   "basicCommandsScreen": {

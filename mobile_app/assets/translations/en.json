@@ -39,7 +39,8 @@
     "invalidnum":"Min 12 characters",
     "hintemergency": "Emergency number",
     "askaccount": "Have an account?",
-    "signin":"Login"
+    "signin":"Login",
+    "register":"Sign Up"
   },
 
   "basicCommandsScreen":{

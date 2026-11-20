@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class CardCommand extends StatelessWidget {
   final String title;
@@ -17,7 +18,7 @@ class CardCommand extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 8,
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
@@ -32,7 +33,7 @@ class CardCommand extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
-            const SizedBox(height: 15),
+            const HeigthSpacing(heigth: 15),
             Text(title, style: Theme.of(context).textTheme.titleLarge),
           ],
         ),

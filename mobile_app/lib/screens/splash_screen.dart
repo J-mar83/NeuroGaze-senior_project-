@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/routers/app_routes.dart';
-import 'package:mobile_app/widgets/splash_content.dart';
+import 'package:mobile_app/widgets/splash_content_widget.dart';
 
 class SplasScreen extends StatefulWidget {
   const SplasScreen({super.key});

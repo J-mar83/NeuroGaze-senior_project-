@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/routers/app_routes.dart';
-import 'package:mobile_app/widgets/inputfield.dart';
+import 'package:mobile_app/themes/assets_app.dart';
+import 'package:mobile_app/themes/style_app.dart';
+import 'package:mobile_app/widgets/input_field_widget.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
+import 'package:mobile_app/widgets/primary_button_widget.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -14,7 +18,6 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final double space = 8.0;
   bool _hidePass = true;
   final bool _hideConfirm = true;
   final _formKey = GlobalKey<FormState>();
@@ -36,15 +39,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-
+    
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: size.width * 0.08,
-            vertical: size.height * 0.08,
-          ),
+           padding: StyleApp.pagePadding,
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -52,28 +51,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children:
                     [
                           Image.asset(
-                            "assets/images/Glossy_Logo.png",
+                      AssetsApp.logo,
                             width: 100,
                             height: 100,
                           ),
-                          SizedBox(height: space),
+                          const HeigthSpacing(heigth: 8),
                           Text(
                             LocaleKeys.registerScreen_createaccount.tr(),
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
-                          SizedBox(height: space),
+                          const HeigthSpacing(heigth: 8),
                           Text(
                             LocaleKeys.registerScreen_descriptionregister.tr(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          SizedBox(height: space * 2),
+                          const HeigthSpacing(heigth: 16),
+
+                          // InputField to register
                           InputField(
                             hintText: LocaleKeys.registerScreen_name.tr(),
                             prefix: Icon(Icons.person_2_outlined),
                             keyboardType: TextInputType.name,
                           ),
-                          SizedBox(height: space),
-
+                          const HeigthSpacing(heigth: 8),
                           InputField(
                             hintText: LocaleKeys.registerScreen_hintemail.tr(),
                             prefix: Icon(Icons.email_outlined),
@@ -83,11 +83,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ? LocaleKeys.registerScreen_invalidemail.tr()
                                 : null,
                           ),
-                          SizedBox(height: space),
-
+                         const HeigthSpacing(heigth: 8),
                           InputField(
-                            hintText: LocaleKeys.registerScreen_hintpassword
-                                .tr(),
+                            hintText: LocaleKeys.registerScreen_hintpassword.tr(),
                             prefix: const Icon(Icons.lock_outline),
                             controller: _passwordCtrl,
                             obscureText: _hidePass,
@@ -98,19 +96,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                               ),
-                              onPressed: () =>
-                                  setState(() => _hidePass = !_hidePass),
+                              onPressed: () => setState(() => _hidePass = !_hidePass),
                             ),
                             validator: (v) => (v == null || v.length < 6)
                                 ? LocaleKeys.registerScreen_inavlidpass.tr()
                                 : null,
                           ),
-
-                          SizedBox(height: space),
-
+                            const HeigthSpacing(heigth: 8),
                           InputField(
-                            hintText: LocaleKeys.registerScreen_hintconfirmpass
-                                .tr(),
+                            hintText: LocaleKeys.registerScreen_hintconfirmpass.tr(),
                             prefix: const Icon(Icons.lock_outline),
                             controller: _confirmCtrl,
                             obscureText: _hideConfirm,
@@ -121,17 +115,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                               ),
-                              onPressed: () =>
-                                  setState(() => _hidePass = !_hidePass),
+                              onPressed: () => setState(() => _hidePass = !_hidePass),
                             ),
                             validator: (v) => (v == null || v.length < 6)
                                 ? LocaleKeys.registerScreen_inavlidpass.tr()
                                 : null,
                           ),
-                          SizedBox(height: space),
+                          const HeigthSpacing(heigth: 8),
                           InputField(
-                            hintText: LocaleKeys.registerScreen_hintemergency
-                                .tr(),
+                            hintText: LocaleKeys.registerScreen_hintemergency.tr(),
                             prefix: Icon(Icons.phone),
                             controller: _phoneCtrl,
                             keyboardType: TextInputType.phone,
@@ -145,24 +137,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   : LocaleKeys.registerScreen_invalidnum.tr();
                             },
                           ),
-
-                          SizedBox(height: space * 5),
-
+                        const HeigthSpacing(heigth: 30),
+                          // button register
                           SizedBox(
                             width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  //  routers to homepage
+                            child:PrimaryButton(
+                              title: LocaleKeys.registerScreen_register.tr(),
+                              heigth: 55 ,
+                               onPress: (){
+                              if (_formKey.currentState!.validate()) {
+                                 context.pushNamed(AppRoutes.basicCommandScreen);
                                 }
                               },
-                              child: Text(
-                                LocaleKeys.registerScreen_createaccount.tr(),
-                              ),
-                            ),
+                            )
                           ),
-
-                          SizedBox(height: space * 5),
+                          const HeigthSpacing(heigth: 40),
+                          //  askto login
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

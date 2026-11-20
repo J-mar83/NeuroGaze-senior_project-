@@ -51,7 +51,8 @@ class CodegenLoader extends AssetLoader{
     "invalidnum": "يجب ألا يقل الرقم عن 12 رقمًا",
     "hintemergency": "رقم الطوارئ",
     "askaccount": "لديك حساب بالفعل؟",
-    "signin": "تسجيل الدخول"
+    "signin": "تسجيل الدخول",
+    "register":"إنشاء حساب"
   },
   "basicCommandsScreen": {
     "titleOfPage": "انظر إلى البطاقة لفتحها",
@@ -99,7 +100,8 @@ static const Map<String,dynamic> _en = {
     "invalidnum": "Min 12 characters",
     "hintemergency": "Emergency number",
     "askaccount": "Have an account?",
-    "signin": "Login"
+    "signin": "Login",
+    "register":"Sign Up"
   },
   "basicCommandsScreen": {
     "titleOfPage": "look at a card to open it",

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/themes/app_colors.dart';
+import 'package:mobile_app/themes/colors_app.dart';
+import 'package:mobile_app/themes/fonts_app.dart';
+import 'package:mobile_app/themes/style_app.dart';
 
 // themes for light
 class LightThemes {
@@ -11,53 +13,60 @@ class LightThemes {
     ),
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.backgroundcolorLight,
+    fontFamily: FontsApp.mainFontFrame,
 
-    textTheme: const TextTheme(
-      bodySmall: TextStyle(color: AppColors.textcolorLight, fontSize: 12),
-      titleLarge: TextStyle(
+    textTheme: TextTheme(
+      titleLarge: StyleApp.largeText.copyWith(color: AppColors.textcolorLight),
+      labelMedium: StyleApp.mediumText.copyWith(
         color: AppColors.textcolorLight,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
       ),
-      labelMedium: TextStyle(color: AppColors.textcolorLight, fontSize: 16),
+      bodySmall: StyleApp.smallText.copyWith(color: AppColors.textcolorLight),
     ),
-    
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.buttoncolorLight,
         foregroundColor: AppColors.textcolorLight,
-        textStyle: const TextStyle(fontSize: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        textStyle: StyleApp.textButton,
+        shape: RoundedRectangleBorder(
+          borderRadius: StyleApp.cardRadius,
+        ),
       ),
     ),
 
     cardTheme: CardThemeData(
       color: AppColors.containercolorLight,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25),
-        side: BorderSide(color: AppColors.bordercontainercolorLight,width: 3),
+        borderRadius: StyleApp.cardRadius,
+        side: BorderSide(
+          color: AppColors.bordercontainercolorLight,
+          width: StyleApp.cardBorderWidth,
+        ),
       ),
-      
     ),
 
     inputDecorationTheme: InputDecorationTheme(
-      labelStyle:TextStyle(color:AppColors.textcolorLight,fontSize: 12),
+      labelStyle: StyleApp.smallText.copyWith(color: AppColors.textcolorLight),
+      hintStyle: StyleApp.smallText.copyWith(color: AppColors.primaryColor),
       filled: true,
       fillColor: AppColors.containercolorLight,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide.none,
+      border: StyleApp.inputBorder,
+
+      focusedBorder: StyleApp.focusedInputBorder.copyWith(
+        borderSide: BorderSide(
+          color: AppColors.buttoncolorLight,
+          width: StyleApp.inputBorderWidth,
+        ),
       ),
-      hintStyle: const TextStyle(color: AppColors.primaryColor, fontSize: 16),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: AppColors.buttoncolorLight),
+
+      errorBorder: StyleApp.errorInputBorder.copyWith(
+        borderSide: BorderSide(
+          color: AppColors.emergency,
+          width: StyleApp.inputBorderWidth,
+        ),
       ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: AppColors.emergency),
-      ),
-      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+
+      contentPadding: StyleApp.inputPadding,
     ),
   );
 }
@@ -66,56 +75,67 @@ class LightThemes {
 class DarkThemes {
   static ThemeData theme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
-      outline: AppColors.bordercontainercolorLight,
+      outline: AppColors.bordercontainercolorDark,
       seedColor: AppColors.primaryColor,
       brightness: Brightness.dark,
     ),
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.backgroundcolorDark,
+    fontFamily: FontsApp.mainFontFrame,
 
-    textTheme: const TextTheme(
-      bodySmall: TextStyle(color: AppColors.textcolorDark, fontSize: 12),
-      titleLarge: TextStyle(
+    textTheme: TextTheme(
+      titleLarge: StyleApp.largeText.copyWith(color: AppColors.textcolorDark),
+      labelMedium: StyleApp.mediumText.copyWith(
         color: AppColors.textcolorDark,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
       ),
-      labelMedium: TextStyle(color: AppColors.textcolorDark, fontSize: 16),
+      bodySmall: StyleApp.smallText.copyWith(color: AppColors.textcolorDark),
     ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.buttoncolorDark,
         foregroundColor: AppColors.textcolorDark,
-        textStyle: const TextStyle(fontSize: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        textStyle: StyleApp.textButton,
+        shape: RoundedRectangleBorder(
+          borderRadius: StyleApp.cardRadius,
+        ),
       ),
     ),
 
     cardTheme: CardThemeData(
       color: AppColors.containercolorDark,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25),
-        side: BorderSide(color: AppColors.bordercontainercolorDark,width: 3),
+        borderRadius: StyleApp.cardRadius,
+        side: BorderSide(
+          color: AppColors.bordercontainercolorDark,
+          width: StyleApp.cardBorderWidth,
+        ),
       ),
-      ),
-      
+    ),
+
     inputDecorationTheme: InputDecorationTheme(
+      labelStyle: StyleApp.smallText.copyWith(color: AppColors.textcolorDark),
+      hintStyle: StyleApp.smallText.copyWith(color: AppColors.primaryColor),
       filled: true,
       fillColor: AppColors.containercolorDark,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide.none,
+
+      border: StyleApp.inputBorder,
+
+      focusedBorder: StyleApp.focusedInputBorder.copyWith(
+        borderSide: BorderSide(
+          color: AppColors.buttoncolorDark,
+          width: StyleApp.inputBorderWidth,
+        ),
       ),
-      hintStyle: const TextStyle(color: AppColors.primaryColor, fontSize: 16),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: AppColors.buttoncolorDark),
+
+      errorBorder: StyleApp.errorInputBorder.copyWith(
+        borderSide: BorderSide(
+          color: AppColors.emergency,
+          width: StyleApp.inputBorderWidth,
+        ),
       ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: AppColors.emergency),
-      ),
-      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+
+      contentPadding: StyleApp.inputPadding,
     ),
   );
 }

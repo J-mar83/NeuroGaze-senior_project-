@@ -4,6 +4,7 @@ import 'package:mobile_app/routers/routers_generator.dart';
 import 'package:mobile_app/themes/light_dark_themes.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Always open in Landscape Mode and lock the orientation.
 void main() async {
@@ -64,18 +65,23 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      builder: (context, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
 
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
 
-      theme: LightThemes.theme,
-      darkTheme: DarkThemes.theme,
-      themeMode: currentTheme,
+          theme: LightThemes.theme,
+          darkTheme: DarkThemes.theme,
+          themeMode: currentTheme,
 
-      routerConfig: RoutersGenerator.mainRoutingInOutApp,
+          routerConfig: RoutersGenerator.mainRoutingInOutApp,
+        );
+      },
     );
   }
 }
