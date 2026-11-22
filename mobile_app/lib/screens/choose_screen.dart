@@ -9,6 +9,7 @@ import 'package:mobile_app/themes/assets_app.dart';
 import 'package:mobile_app/themes/style_app.dart';
 import 'package:mobile_app/widgets/card_of_command.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
+import 'package:mobile_app/models/user_role.dart';
 
 class ChooseScreen extends StatelessWidget {
   const ChooseScreen({super.key});
@@ -28,7 +29,7 @@ class ChooseScreen extends StatelessWidget {
                   title: LocaleKeys.chooseScreen_patient.tr(),
                   iconCommand: AssetsApp.patient,
                   iconSize: size.height * 0.28,
-                  onTap: () => context.pushNamed(AppRoutes.loginScreen),
+                  onTap: () => context.pushNamed(AppRoutes.loginScreen, extra: UserRole.patient),
                 ).animate()
                  .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
                  .slideY(begin: 0.15, end: 0, duration: 600.ms),
@@ -41,8 +42,8 @@ class ChooseScreen extends StatelessWidget {
                   title: LocaleKeys.chooseScreen_companion.tr(),
                   iconCommand: AssetsApp.companion,
                   iconSize: size.height * 0.28,
-                  onTap: () => context.pushNamed('companion'),
-                ).animate(delay: 250.ms) 
+                  onTap: () => context.pushNamed(AppRoutes.loginScreen, extra: UserRole.companion),
+                ).animate(delay: 250.ms)
                  .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
                  .slideY(begin: 0.15, end: 0, duration: 600.ms),
               ),

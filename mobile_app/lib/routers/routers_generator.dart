@@ -6,6 +6,10 @@ import 'package:mobile_app/screens/choose_screen.dart';
 import 'package:mobile_app/screens/login_screen.dart';
 import 'package:mobile_app/screens/register_screen.dart';
 import 'package:mobile_app/screens/splash_screen.dart';
+import 'package:mobile_app/screens/companion/companion_shell.dart';
+import 'package:mobile_app/models/user_role.dart';
+import 'package:mobile_app/screens/companion/patient_details_screen.dart';
+import 'package:mobile_app/screens/companion/request_details_screen.dart';
 
 class RoutersGenerator {
   static final GoRouter mainRoutingInOutApp = GoRouter(
@@ -26,17 +30,40 @@ class RoutersGenerator {
       GoRoute(
         name: AppRoutes.loginScreen,
         path: AppRoutes.loginScreen,
-        builder: (context, state) => const Loginscreen(),
+        builder: (context, state) => Loginscreen(
+          role: state.extra as UserRole? ?? UserRole.patient,
+        ),
       ),
       GoRoute(
         name: AppRoutes.registerScreen,
         path: AppRoutes.registerScreen,
-        builder: (context, state) => const RegisterScreen(),
+        builder: (context, state) => RegisterScreen(
+          role: state.extra as UserRole? ?? UserRole.patient,
+        ),
       ),
       GoRoute(
         name: AppRoutes.basicCommandScreen,
         path: AppRoutes.basicCommandScreen,
         builder: (context, state) => const BasicCommands(),
+      ),
+      GoRoute(
+        name: AppRoutes.companionShell,
+        path: AppRoutes.companionShell,
+        builder: (context, state) => const CompanionShell(),
+      ),
+      GoRoute(
+        name: AppRoutes.patientDetails,
+        path: '${AppRoutes.patientDetails}/:id',
+        builder: (context, state) => PatientDetailsScreen(
+          patientId: state.pathParameters['id']!,
+        ),
+      ),
+      GoRoute(
+        name: AppRoutes.requestDetails,
+        path: '${AppRoutes.requestDetails}/:id',
+        builder: (context, state) => RequestDetailsScreen(
+          requestId: state.pathParameters['id']!,
+        ),
       ),
     ],
   );

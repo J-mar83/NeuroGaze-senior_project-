@@ -9,9 +9,11 @@ import 'package:mobile_app/widgets/input_field_widget.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/widgets/primary_button_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
+import 'package:mobile_app/models/user_role.dart';
 
 class Loginscreen extends StatefulWidget {
-  const Loginscreen({super.key});
+  final UserRole role; // مين اللي بيسجل دخول: مريض ولا مرافق
+  const Loginscreen({super.key, this.role = UserRole.patient});
 
   @override
   State<Loginscreen> createState() => _LoginscreenState();
@@ -105,8 +107,10 @@ class _LoginscreenState extends State<Loginscreen> {
                               heigth: 55 ,
                               onPress: () {
                                 if (_formKey.currentState!.validate()) {
-                                  context.pushNamed(
-                                    AppRoutes.basicCommandScreen,
+                                  context.goNamed(
+                                    widget.role == UserRole.companion
+                                        ? AppRoutes.companionShell
+                                        : AppRoutes.basicCommandScreen,
                                   );
                                 }
                               },
@@ -158,8 +162,11 @@ class _LoginscreenState extends State<Loginscreen> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  context.pushNamed(AppRoutes.registerScreen);
-                                },
+                                  context.pushNamed(
+                                    AppRoutes.registerScreen,
+                                    extra: widget.role,
+                                  );
+                                  },
                                 child: Text(
                                   LocaleKeys.loginScreen_createaccount.tr(),
                                 ),

@@ -9,9 +9,11 @@ import 'package:mobile_app/widgets/input_field_widget.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/widgets/primary_button_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
+import 'package:mobile_app/models/user_role.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+  final UserRole role;
+  const RegisterScreen({super.key, this.role = UserRole.patient});
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -146,13 +148,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               heigth: 55 ,
                                onPress: (){
                               if (_formKey.currentState!.validate()) {
-                                 context.pushNamed(AppRoutes.basicCommandScreen);
-                                }
+                                context.goNamed(
+                                  widget.role == UserRole.companion
+                                      ? AppRoutes.companionShell
+                                      : AppRoutes.basicCommandScreen,
+                                );
+                              }
                               },
                             )
                           ),
                           const HeigthSpacing(heigth: 40),
-                          //  askto login
+                          //  ask to login
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -162,8 +168,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  context.goNamed(AppRoutes.loginScreen);
-                                },
+                                  context.goNamed(
+                                    AppRoutes.loginScreen,
+                                    extra: widget.role,
+                                  );
+                                  },
                                 child: Text(
                                   LocaleKeys.registerScreen_signin.tr(),
                                 ),
