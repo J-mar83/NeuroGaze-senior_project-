@@ -10,6 +10,7 @@ import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/widgets/primary_button_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
 import 'package:mobile_app/models/user_role.dart';
+import 'package:mobile_app/utils/orientation_aware.dart';
 
 class Loginscreen extends StatefulWidget {
   final UserRole role; // مين اللي بيسجل دخول: مريض ولا مرافق
@@ -19,7 +20,9 @@ class Loginscreen extends StatefulWidget {
   State<Loginscreen> createState() => _LoginscreenState();
 }
 
-class _LoginscreenState extends State<Loginscreen> {
+class _LoginscreenState extends State<Loginscreen> with OrientationAware {
+  @override
+  ScreenOrientation get orientation => ScreenOrientation.portrait;
   bool _hidePass = true;
   final _formKey = GlobalKey<FormState>();
   final _emailCtrl = TextEditingController();
@@ -52,7 +55,9 @@ class _LoginscreenState extends State<Loginscreen> {
                           ),
                           const HeigthSpacing(heigth: 8),
                           Text(
-                            LocaleKeys.loginScreen_descriptionlogin.tr(),
+                            widget.role == UserRole.companion
+                                ? LocaleKeys.loginScreen_descriptionCompanion.tr()
+                                : LocaleKeys.loginScreen_descriptionPatient.tr(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           const HeigthSpacing(heigth: 16),

@@ -25,7 +25,8 @@ class ChooseScreen extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: CardCommand(
+                child: CardCommand( /// patient card
+                  gaze: false,
                   title: LocaleKeys.chooseScreen_patient.tr(),
                   iconCommand: AssetsApp.patient,
                   iconSize: size.height * 0.28,
@@ -39,6 +40,7 @@ class ChooseScreen extends StatelessWidget {
 
               Expanded(
                 child: CardCommand(
+                  gaze: false,
                   title: LocaleKeys.chooseScreen_companion.tr(),
                   iconCommand: AssetsApp.companion,
                   iconSize: size.height * 0.28,

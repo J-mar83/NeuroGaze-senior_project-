@@ -10,12 +10,14 @@ import 'package:mobile_app/screens/companion/companion_shell.dart';
 import 'package:mobile_app/models/user_role.dart';
 import 'package:mobile_app/screens/companion/patient_details_screen.dart';
 import 'package:mobile_app/screens/companion/request_details_screen.dart';
+import 'package:mobile_app/utils/orientation_aware.dart';
 
 class RoutersGenerator {
   static final GoRouter mainRoutingInOutApp = GoRouter(
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text("This Router is not found 404"))),
     initialLocation: AppRoutes.slaphScreen,
+    observers: [appRouteObserver],
     routes: [
       GoRoute(
         name: AppRoutes.slaphScreen,

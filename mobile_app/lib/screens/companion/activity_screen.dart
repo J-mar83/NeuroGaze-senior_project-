@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/data/requests_store.dart';
+import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/widgets/request_tile.dart';
 
 class ActivityScreen extends StatelessWidget {
@@ -19,13 +21,17 @@ class ActivityScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Activity', style: Theme.of(context).textTheme.headlineSmall),
+              Text(
+                LocaleKeys.companion_navActivity.tr(),
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
               const SizedBox(height: 4),
-              Text('${pending.length} pending'),
+              Text(LocaleKeys.companion_pendingCount
+                  .tr(args: ['${pending.length}'])),
               const SizedBox(height: 12),
               Expanded(
                 child: pending.isEmpty
-                    ? const Center(child: Text('All caught up'))
+                    ? Center(child: Text(LocaleKeys.companion_allCaughtUp.tr()))
                     : ListView.builder(
                   itemCount: pending.length,
                   itemBuilder: (context, index) {

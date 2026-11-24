@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/data/requests_store.dart';
+import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/models/command_request.dart';
 import 'package:mobile_app/models/command_type_ext.dart';
 import 'package:mobile_app/themes/colors_app.dart';
@@ -16,9 +18,12 @@ class RequestDetailsScreen extends StatelessWidget {
   }
 
   String _formatDuration(Duration d) {
-    if (d.inMinutes < 1) return 'Less than a minute';
-    if (d.inHours < 1) return '${d.inMinutes} min';
-    return '${d.inHours} h ${d.inMinutes % 60} min';
+    if (d.inMinutes < 1) return LocaleKeys.companion_lessThanMinute.tr();
+    if (d.inHours < 1) {
+      return LocaleKeys.companion_minutes.tr(args: ['${d.inMinutes}']);
+    }
+    return LocaleKeys.companion_hoursMinutes
+        .tr(args: ['${d.inHours}', '${d.inMinutes % 60}']);
   }
 
   @override
@@ -35,7 +40,7 @@ class RequestDetailsScreen extends StatelessWidget {
         final executedAt = request.executedAt;
 
         return Scaffold(
-          appBar: AppBar(title: const Text('Request details')),
+          appBar: AppBar(title: Text(LocaleKeys.companion_requestDetails.tr())),
           body: ListView(
             padding: const EdgeInsets.all(16),
             children: [
@@ -55,22 +60,22 @@ class RequestDetailsScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: const Icon(Icons.person_outline),
-                      title: const Text('Patient'),
+                      title: Text(LocaleKeys.companion_patient.tr()),
                       subtitle: Text(store.patientNameOf(request.patientId)),
                     ),
                     const Divider(height: 1),
                     ListTile(
                       leading: const Icon(Icons.schedule),
-                      title: const Text('Requested'),
+                      title: Text(LocaleKeys.companion_requested.tr()),
                       subtitle: Text(_formatDateTime(request.requestedAt)),
                     ),
                     const Divider(height: 1),
                     ListTile(
                       leading: const Icon(Icons.check_circle_outline),
-                      title: const Text('Executed'),
+                      title: Text(LocaleKeys.companion_executed.tr()),
                       subtitle: Text(
                         executedAt == null
-                            ? 'Not yet'
+                            ? LocaleKeys.companion_notYet.tr()
                             : _formatDateTime(executedAt),
                       ),
                     ),
@@ -78,7 +83,7 @@ class RequestDetailsScreen extends StatelessWidget {
                       const Divider(height: 1),
                       ListTile(
                         leading: const Icon(Icons.timer_outlined),
-                        title: const Text('Response time'),
+                        title: Text(LocaleKeys.companion_responseTime.tr()),
                         subtitle: Text(
                           _formatDuration(
                             executedAt.difference(request.requestedAt),
@@ -94,7 +99,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 FilledButton.icon(
                   onPressed: () => store.markDone(request.id),
                   icon: const Icon(Icons.check),
-                  label: const Text('Mark as done'),
+                  label: Text(LocaleKeys.companion_markAsDone.tr()),
                 ),
               ],
             ],

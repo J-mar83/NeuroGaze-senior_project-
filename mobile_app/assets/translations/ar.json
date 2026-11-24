@@ -15,6 +15,8 @@
   "loginScreen": {
     "welcome": "مرحبًا بعودتك",
     "descriptionlogin": "سجّل الدخول للمتابعة (المرافق)",
+    "descriptionPatient": "سجّل الدخول للمتابعة (المريض)",
+    "descriptionCompanion": "سجّل الدخول للمتابعة (المرافق)",
     "hintemail": "أدخل البريد الإلكتروني",
     "hintpassword": "أدخل كلمة المرور",
     "invalidemail": "البريد الإلكتروني غير صالح",
@@ -30,6 +32,10 @@
   "registerScreen": {
     "createaccount": "إنشاء حساب",
     "descriptionregister": "حساب المرافق",
+    "descriptionPatient": "حساب المريض",
+    "descriptionCompanion": "حساب المرافق",
+    "invalidname": "من فضلك أدخل اسمك",
+    "passwordsDontMatch": "كلمتا المرور غير متطابقتين",
     "name": "الاسم بالكامل",
     "hintemail": "أدخل البريد الإلكتروني",
     "hintpassword": "أدخل كلمة المرور",
@@ -50,7 +56,54 @@
   "comfortCommand": "الراحة",
   "talkCommand": "التحدث",
   "emergencyCommand": "الطوارئ"
-}
+},
+
+  "companion": {
+    "navPatients": "المرضى",
+    "navActivity": "النشاط",
+    "navHistory": "السجل",
+    "navSettings": "الإعدادات",
+
+    "searchPatients": "ابحث عن مريض",
+    "noPatients": "لا يوجد مرضى",
+    "yearsOld": "{} سنة",
+
+    "pending": "قيد الانتظار",
+    "done": "تم التنفيذ",
+    "requestedAt": "طُلب {}",
+    "doneAt": "نُفّذ {}",
+
+    "notes": "ملاحظات",
+    "activityLog": "سجل النشاط",
+    "noActivityYet": "لا يوجد نشاط بعد",
+
+    "pendingCount": "{} قيد الانتظار",
+    "allCaughtUp": "لا توجد طلبات معلقة",
+
+    "completedCount": "{} مكتمل",
+    "noHistoryYet": "لا يوجد سجل بعد",
+
+    "requestDetails": "تفاصيل الطلب",
+    "patient": "المريض",
+    "requested": "وقت الطلب",
+    "executed": "وقت التنفيذ",
+    "notYet": "لم يُنفّذ بعد",
+    "responseTime": "زمن الاستجابة",
+    "lessThanMinute": "أقل من دقيقة",
+    "minutes": "{} دقيقة",
+    "hoursMinutes": "{} ساعة و{} دقيقة",
+    "markAsDone": "تحديد كمنفّذ",
+
+    "role": "مرافق",
+    "email": "البريد الإلكتروني",
+    "emergencyNumber": "رقم الطوارئ",
+    "darkMode": "الوضع الداكن",
+    "language": "اللغة",
+    "logout": "تسجيل الخروج",
+    "logoutQuestion": "تسجيل الخروج؟",
+    "logoutMessage": "ستعود إلى شاشة البداية.",
+    "cancel": "إلغاء"
+  }
 
 
 }

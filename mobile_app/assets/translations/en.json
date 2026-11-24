@@ -15,6 +15,8 @@
   "loginScreen":{
     "welcome":"Welcome Back",
     "descriptionlogin":"Sign in to continue (caregiver)",
+    "descriptionPatient": "Sign in to continue (Patient)",
+    "descriptionCompanion": "Sign in to continue (Companion)",
     "hintemail": "Enter your email",
     "hintpassword": "Enter your password",
      "invalidemail":"Invalid email",
@@ -30,6 +32,10 @@
   "registerScreen":{
      "createaccount":"Create Account",
     "descriptionregister": "Caregiver account",
+    "descriptionPatient": "Patient account",
+    "descriptionCompanion": "Companion account",
+    "invalidname": "Please enter your name",
+    "passwordsDontMatch": "Passwords do not match",
     "name":"Full Name",
     "hintemail": "Enter your email",
     "hintpassword": "Enter your password",
@@ -50,7 +56,55 @@
     "comfortCommand":"Comfort",
     "talkCommand":"Talk",
     "emergencyCommand":"Emergency"
+  },
+
+  "companion": {
+    "navPatients": "Patients",
+    "navActivity": "Activity",
+    "navHistory": "History",
+    "navSettings": "Settings",
+
+    "searchPatients": "Search patients",
+    "noPatients": "No patients found",
+    "yearsOld": "{} years",
+
+    "pending": "Pending",
+    "done": "Done",
+    "requestedAt": "Requested {}",
+    "doneAt": "Done {}",
+
+    "notes": "Notes",
+    "activityLog": "Activity log",
+    "noActivityYet": "No activity yet",
+
+    "pendingCount": "{} pending",
+    "allCaughtUp": "All caught up",
+
+    "completedCount": "{} completed",
+    "noHistoryYet": "No history yet",
+
+    "requestDetails": "Request details",
+    "patient": "Patient",
+    "requested": "Requested",
+    "executed": "Executed",
+    "notYet": "Not yet",
+    "responseTime": "Response time",
+    "lessThanMinute": "Less than a minute",
+    "minutes": "{} min",
+    "hoursMinutes": "{} h {} min",
+    "markAsDone": "Mark as done",
+
+    "role": "Companion",
+    "email": "Email",
+    "emergencyNumber": "Emergency number",
+    "darkMode": "Dark mode",
+    "language": "Language",
+    "logout": "Log out",
+    "logoutQuestion": "Log out?",
+    "logoutMessage": "You will return to the start screen.",
+    "cancel": "Cancel"
   }
+
 
 
 }

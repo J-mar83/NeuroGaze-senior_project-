@@ -9,6 +9,7 @@ import 'package:mobile_app/themes/assets_app.dart';
 import 'package:mobile_app/themes/style_app.dart';
 import 'package:mobile_app/widgets/card_of_command.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
+import 'package:mobile_app/widgets/gaze_button.dart';
 
 class BasicCommands extends StatelessWidget {
   const BasicCommands({super.key});
@@ -29,7 +30,7 @@ class BasicCommands extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-           padding: StyleApp.pagePadding,
+          padding: StyleApp.pagePadding,
           child: Column(
             children: [
               Row(
@@ -46,8 +47,8 @@ class BasicCommands extends StatelessWidget {
                   ),
                 ],
               ).animate(delay: 1.seconds)
-              .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
-              .slideX(begin: 0.15, end: 0, duration: 600.ms),
+                  .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
+                  .slideX(begin: 0.15, end: 0, duration: 600.ms),
 
               const HeigthSpacing(heigth: 10),
 
@@ -72,27 +73,38 @@ class BasicCommands extends StatelessWidget {
                 ),
               ),
 
-              const  HeigthSpacing(heigth: 10),
-              // زرار الطوارئ
+              const HeigthSpacing(heigth: 10),
+
+              // زرار الطوارئ: بيتفعّل بالتثبيت، ومدته أطول شوية عشان ما يتفعّلش بالغلط
               SizedBox(
                 width: double.infinity,
                 height: size.height * 0.10,
-                child: TextButton.icon(      
-                  onPressed: () => context.pushNamed(AppRoutes.loginScreen),
-                  style: TextButton.styleFrom(
-                    backgroundColor: const Color(0xFFB75151),
+                child: GazeButton(
+                  color: const Color(0xFFB75151),
+                  progressColor: Colors.white,
+                  dwell: const Duration(seconds: 3),
+                  onActivated: () => context.pushNamed(AppRoutes.loginScreen),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.warning_rounded,
+                        color: Colors.white,
+                        size: 13.sp,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        LocaleKeys.basicCommandsScreen_emergencyCommand.tr(),
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
-                  icon: Icon(
-                    Icons.warning_rounded,
-                    color: Colors.white,
-                    size: 13.sp,
-                  ),
-                  label: Text(LocaleKeys.basicCommandsScreen_emergencyCommand.tr(), style: theme.textTheme.bodySmall),
                 ),
-
               ).animate(delay: 1.2.seconds)
-              .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
-              .slideX(begin: 0.15, end: 0, duration: 600.ms),
+                  .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
+                  .slideX(begin: 0.15, end: 0, duration: 600.ms),
             ],
           ),
         ),

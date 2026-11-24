@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/models/command_request.dart';
 import 'package:mobile_app/models/command_type_ext.dart';
 import 'package:mobile_app/themes/colors_app.dart';
@@ -26,9 +28,11 @@ class RequestTile extends StatelessWidget {
   String _subtitle() {
     final parts = <String>[];
     if (patientName != null) parts.add(patientName!);
-    parts.add('Requested ${_formatTime(request.requestedAt)}');
+    parts.add(LocaleKeys.companion_requestedAt
+        .tr(args: [_formatTime(request.requestedAt)]));
     if (request.executedAt != null) {
-      parts.add('Done ${_formatTime(request.executedAt!)}');
+      parts.add(LocaleKeys.companion_doneAt
+          .tr(args: [_formatTime(request.executedAt!)]));
     }
     return parts.join(' • ');
   }
@@ -49,7 +53,9 @@ class RequestTile extends StatelessWidget {
         subtitle: Text(_subtitle()),
         trailing: trailing ??
             Text(
-              request.isDone ? 'Done' : 'Pending',
+              request.isDone
+                  ? LocaleKeys.companion_done.tr()
+                  : LocaleKeys.companion_pending.tr(),
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 color: request.isDone ? Colors.green : Colors.orange,

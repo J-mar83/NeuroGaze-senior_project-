@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/data/requests_store.dart';
+import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/widgets/request_tile.dart';
 
@@ -21,13 +23,17 @@ class HistoryScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('History', style: Theme.of(context).textTheme.headlineSmall),
+              Text(
+                LocaleKeys.companion_navHistory.tr(),
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
               const SizedBox(height: 4),
-              Text('${done.length} completed'),
+              Text(LocaleKeys.companion_completedCount
+                  .tr(args: ['${done.length}'])),
               const SizedBox(height: 12),
               Expanded(
                 child: done.isEmpty
-                    ? const Center(child: Text('No history yet'))
+                    ? Center(child: Text(LocaleKeys.companion_noHistoryYet.tr()))
                     : ListView.builder(
                   itemCount: done.length,
                   itemBuilder: (context, index) {

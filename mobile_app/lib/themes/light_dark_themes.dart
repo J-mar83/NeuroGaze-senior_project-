@@ -14,6 +14,7 @@ class LightThemes {
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.backgroundcolorLight,
     fontFamily: FontsApp.mainFontFrame,
+    fontFamilyFallback: const [FontsApp.arabicFont],
 
     textTheme: TextTheme(
       titleLarge: StyleApp.largeText.copyWith(color: AppColors.textcolorLight),
@@ -82,6 +83,7 @@ class DarkThemes {
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.backgroundcolorDark,
     fontFamily: FontsApp.mainFontFrame,
+    fontFamilyFallback: const [FontsApp.arabicFont],
 
     textTheme: TextTheme(
       titleLarge: StyleApp.largeText.copyWith(color: AppColors.textcolorDark),

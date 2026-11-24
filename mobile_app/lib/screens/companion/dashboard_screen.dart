@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/data/fake_data.dart';
 import 'package:mobile_app/data/requests_store.dart';
+import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/widgets/patient_card.dart';
 
@@ -13,11 +15,10 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  String _query = ''; // اللي المستخدم كتبه في البحث
+  String _query = '';
 
   @override
   Widget build(BuildContext context) {
-    // فلترة المرضى حسب الاسم
     final filtered = FakeData.patients
         .where((p) => p.name.toLowerCase().contains(_query.trim().toLowerCase()))
         .toList();
@@ -27,13 +28,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Patients', style: Theme.of(context).textTheme.headlineSmall),
+          Text(
+            LocaleKeys.companion_navPatients.tr(),
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
           const SizedBox(height: 12),
           TextField(
             onChanged: (value) => setState(() => _query = value),
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search),
-              hintText: 'Search patients',
+              hintText: LocaleKeys.companion_searchPatients.tr(),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -42,7 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           const SizedBox(height: 16),
           Expanded(
             child: filtered.isEmpty
-                ? const Center(child: Text('No patients found'))
+                ? Center(child: Text(LocaleKeys.companion_noPatients.tr()))
                 : ListenableBuilder(
               listenable: RequestsStore.instance,
               builder: (context, _) => GridView.builder(

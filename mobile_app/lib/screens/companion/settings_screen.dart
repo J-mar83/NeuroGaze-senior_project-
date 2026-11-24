@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/data/app_settings.dart';
 import 'package:mobile_app/data/fake_data.dart';
+import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/themes/colors_app.dart';
 
@@ -13,22 +14,21 @@ class SettingsScreen extends StatelessWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Log out?'),
-        content: const Text('You will return to the start screen.'),
+        title: Text(LocaleKeys.companion_logoutQuestion.tr()),
+        content: Text(LocaleKeys.companion_logoutMessage.tr()),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: const Text('Cancel'),
+            child: Text(LocaleKeys.companion_cancel.tr()),
           ),
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
-            child: const Text('Log out'),
+            child: Text(LocaleKeys.companion_logout.tr()),
           ),
         ],
       ),
     );
 
-    // mounted: نتأكد إن الشاشة لسه موجودة بعد انتظار الـ dialog
     if (ok == true && context.mounted) {
       context.goNamed(AppRoutes.chooseScreen);
     }
@@ -39,36 +39,35 @@ class SettingsScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        Text('Settings', style: Theme.of(context).textTheme.headlineSmall),
+        Text(
+          LocaleKeys.companion_navSettings.tr(),
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
         const SizedBox(height: 16),
-
-        // ---- الحساب ----
         Card(
           child: Column(
             children: [
               ListTile(
                 leading: CircleAvatar(child: Text(FakeData.companionName[0])),
                 title: Text(FakeData.companionName),
-                subtitle: const Text('Companion'),
+                subtitle: Text(LocaleKeys.companion_role.tr()),
               ),
               const Divider(height: 1),
               ListTile(
                 leading: const Icon(Icons.email_outlined),
-                title: const Text('Email'),
+                title: Text(LocaleKeys.companion_email.tr()),
                 subtitle: Text(FakeData.companionEmail),
               ),
               const Divider(height: 1),
               ListTile(
                 leading: const Icon(Icons.phone),
-                title: const Text('Emergency number'),
+                title: Text(LocaleKeys.companion_emergencyNumber.tr()),
                 subtitle: Text(FakeData.companionEmergency),
               ),
             ],
           ),
         ),
         const SizedBox(height: 16),
-
-        // ---- التطبيق ----
         Card(
           child: Column(
             children: [
@@ -76,7 +75,7 @@ class SettingsScreen extends StatelessWidget {
                 valueListenable: AppSettings.themeMode,
                 builder: (context, mode, _) => SwitchListTile(
                   secondary: const Icon(Icons.dark_mode_outlined),
-                  title: const Text('Dark mode'),
+                  title: Text(LocaleKeys.companion_darkMode.tr()),
                   value: mode == ThemeMode.dark,
                   onChanged: (isDark) {
                     AppSettings.themeMode.value =
@@ -87,7 +86,7 @@ class SettingsScreen extends StatelessWidget {
               const Divider(height: 1),
               ListTile(
                 leading: const Icon(Icons.language),
-                title: const Text('Language'),
+                title: Text(LocaleKeys.companion_language.tr()),
                 trailing: SegmentedButton<String>(
                   segments: const [
                     ButtonSegment(value: 'en', label: Text('EN')),
@@ -103,12 +102,10 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-
-        // ---- Logout ----
         OutlinedButton.icon(
           onPressed: () => _confirmLogout(context),
           icon: const Icon(Icons.logout),
-          label: const Text('Log out'),
+          label: Text(LocaleKeys.companion_logout.tr()),
           style: OutlinedButton.styleFrom(
             foregroundColor: AppColors.emergency,
             side: const BorderSide(color: AppColors.emergency),

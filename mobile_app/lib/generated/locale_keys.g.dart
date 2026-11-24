@@ -8,13 +8,13 @@ abstract class  LocaleKeys {
   static const splashScreen_language = 'splashScreen.language';
   static const splashScreen_mode = 'splashScreen.mode';
   static const splashScreen = 'splashScreen';
-  
   static const chooseScreen_patient = 'chooseScreen.patient';
   static const chooseScreen_companion = 'chooseScreen.companion';
   static const chooseScreen = 'chooseScreen';
-  
   static const loginScreen_welcome = 'loginScreen.welcome';
   static const loginScreen_descriptionlogin = 'loginScreen.descriptionlogin';
+  static const loginScreen_descriptionPatient = 'loginScreen.descriptionPatient';
+  static const loginScreen_descriptionCompanion = 'loginScreen.descriptionCompanion';
   static const loginScreen_hintemail = 'loginScreen.hintemail';
   static const loginScreen_hintpassword = 'loginScreen.hintpassword';
   static const loginScreen_invalidemail = 'loginScreen.invalidemail';
@@ -26,9 +26,12 @@ abstract class  LocaleKeys {
   static const loginScreen_askaccount = 'loginScreen.askaccount';
   static const loginScreen_createaccount = 'loginScreen.createaccount';
   static const loginScreen = 'loginScreen';
-
   static const registerScreen_createaccount = 'registerScreen.createaccount';
   static const registerScreen_descriptionregister = 'registerScreen.descriptionregister';
+  static const registerScreen_descriptionPatient = 'registerScreen.descriptionPatient';
+  static const registerScreen_descriptionCompanion = 'registerScreen.descriptionCompanion';
+  static const registerScreen_invalidname = 'registerScreen.invalidname';
+  static const registerScreen_passwordsDontMatch = 'registerScreen.passwordsDontMatch';
   static const registerScreen_name = 'registerScreen.name';
   static const registerScreen_hintemail = 'registerScreen.hintemail';
   static const registerScreen_hintpassword = 'registerScreen.hintpassword';
@@ -38,10 +41,9 @@ abstract class  LocaleKeys {
   static const registerScreen_invalidnum = 'registerScreen.invalidnum';
   static const registerScreen_hintemergency = 'registerScreen.hintemergency';
   static const registerScreen_askaccount = 'registerScreen.askaccount';
-   static const registerScreen_register = 'registerScreen.register';
   static const registerScreen_signin = 'registerScreen.signin';
+  static const registerScreen_register = 'registerScreen.register';
   static const registerScreen = 'registerScreen';
-
   static const basicCommandsScreen_titleOfPage = 'basicCommandsScreen.titleOfPage';
   static const basicCommandsScreen_needsCommand = 'basicCommandsScreen.needsCommand';
   static const basicCommandsScreen_careCommand = 'basicCommandsScreen.careCommand';
@@ -49,5 +51,43 @@ abstract class  LocaleKeys {
   static const basicCommandsScreen_talkCommand = 'basicCommandsScreen.talkCommand';
   static const basicCommandsScreen_emergencyCommand = 'basicCommandsScreen.emergencyCommand';
   static const basicCommandsScreen = 'basicCommandsScreen';
+  static const companion_navPatients = 'companion.navPatients';
+  static const companion_navActivity = 'companion.navActivity';
+  static const companion_navHistory = 'companion.navHistory';
+  static const companion_navSettings = 'companion.navSettings';
+  static const companion_searchPatients = 'companion.searchPatients';
+  static const companion_noPatients = 'companion.noPatients';
+  static const companion_yearsOld = 'companion.yearsOld';
+  static const companion_pending = 'companion.pending';
+  static const companion_done = 'companion.done';
+  static const companion_requestedAt = 'companion.requestedAt';
+  static const companion_doneAt = 'companion.doneAt';
+  static const companion_notes = 'companion.notes';
+  static const companion_activityLog = 'companion.activityLog';
+  static const companion_noActivityYet = 'companion.noActivityYet';
+  static const companion_pendingCount = 'companion.pendingCount';
+  static const companion_allCaughtUp = 'companion.allCaughtUp';
+  static const companion_completedCount = 'companion.completedCount';
+  static const companion_noHistoryYet = 'companion.noHistoryYet';
+  static const companion_requestDetails = 'companion.requestDetails';
+  static const companion_patient = 'companion.patient';
+  static const companion_requested = 'companion.requested';
+  static const companion_executed = 'companion.executed';
+  static const companion_notYet = 'companion.notYet';
+  static const companion_responseTime = 'companion.responseTime';
+  static const companion_lessThanMinute = 'companion.lessThanMinute';
+  static const companion_minutes = 'companion.minutes';
+  static const companion_hoursMinutes = 'companion.hoursMinutes';
+  static const companion_markAsDone = 'companion.markAsDone';
+  static const companion_role = 'companion.role';
+  static const companion_email = 'companion.email';
+  static const companion_emergencyNumber = 'companion.emergencyNumber';
+  static const companion_darkMode = 'companion.darkMode';
+  static const companion_language = 'companion.language';
+  static const companion_logout = 'companion.logout';
+  static const companion_logoutQuestion = 'companion.logoutQuestion';
+  static const companion_logoutMessage = 'companion.logoutMessage';
+  static const companion_cancel = 'companion.cancel';
+  static const companion = 'companion';
 
 }
