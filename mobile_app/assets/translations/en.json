@@ -103,6 +103,25 @@
     "logoutQuestion": "Log out?",
     "logoutMessage": "You will return to the start screen.",
     "cancel": "Cancel"
+  },
+
+  "commands": {
+    "water": "Water",
+    "food": "Food",
+    "toilet": "Toilet",
+    "air": "Fresh air",
+    "medicine": "Medicine",
+    "pain": "I'm in pain",
+    "nurse": "Call the nurse",
+    "doctor": "Call the doctor",
+    "pillow": "Adjust pillow",
+    "blanket": "Blanket",
+    "light": "Light",
+    "temperature": "Temperature",
+    "yes": "Yes",
+    "no": "No",
+    "thanks": "Thank you",
+    "family": "Call my family"
   }
 
 

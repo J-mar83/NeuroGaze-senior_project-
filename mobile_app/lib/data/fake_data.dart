@@ -8,12 +8,12 @@ class FakeData {
   static const String companionEmergency = '01012345678';
 
   static final List<Patient> patients = [
-    const Patient(id: 'p1', name: 'Ahmed Ali', age: 67, notes: 'Needs help with water'),
-    const Patient(id: 'p2', name: 'Mona Hassan', age: 54, notes: 'Allergic to penicillin'),
-    const Patient(id: 'p3', name: 'Omar Khaled', age: 72, notes: 'Sensitive to bright light'),
-    const Patient(id: 'p4', name: 'Sara Mahmoud', age: 61, notes: 'Prefers the room quiet at night'),
-    const Patient(id: 'p5', name: 'Youssef Adel', age: 48, notes: 'Uses a communication board'),
-    const Patient(id: 'p6', name: 'Laila Samir', age: 79, notes: 'Needs repositioning every 2 hours'),
+    const Patient(id: 'p1', name: 'Ahmed Ali', age: 67, notes: 'Needs help with water', linkCode: 'NG-4821'),
+    const Patient(id: 'p2', name: 'Mona Hassan', age: 54, notes: 'Allergic to penicillin', linkCode: 'NG-7305'),
+    const Patient(id: 'p3', name: 'Omar Khaled', age: 72, notes: 'Sensitive to bright light', linkCode: 'NG-1198'),
+    const Patient(id: 'p4', name: 'Sara Mahmoud', age: 61, notes: 'Prefers the room quiet at night', linkCode: 'NG-5642'),
+    const Patient(id: 'p5', name: 'Youssef Adel', age: 48, notes: 'Uses a communication board', linkCode: 'NG-9027'),
+    const Patient(id: 'p6', name: 'Laila Samir', age: 79, notes: 'Needs repositioning every 2 hours', linkCode: 'NG-3460'),
   ];
 
   static final List<CommandRequest> requests = [

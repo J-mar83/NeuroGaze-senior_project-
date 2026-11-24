@@ -54,9 +54,7 @@ class _ChooseScreenState extends State<ChooseScreen> with OrientationAware {
             // كل كارت 36% من ارتفاع الشاشة المتاحة. غيّر الرقم لو عايز أكبر/أصغر
             final cardHeight = constraints.maxHeight * 0.36;
 
-            return Container(
-              color: Colors.red.withValues(alpha: 0.15), // مؤقتاً: عشان نشوف حدود الشاشة المتاحة
-              alignment: Alignment.center,
+            return Center(
               child: Padding(
                 padding: StyleApp.pagePadding,
                 child: Column(
