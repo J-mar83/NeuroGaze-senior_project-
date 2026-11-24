@@ -1,13 +1,15 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:mobile_app/models/command_request.dart';
 
 class Command {
   final String id;
-  final CommandType category; // needs / care / comfort / talk
-  final String iconKey; // مفتاح الأيقونة (بنحوله لأيقونة في command_icons.dart)
-  final String? titleKey; // مفتاح الترجمة (للأوامر الجاهزة)
-  final String? customTitle; // نص كتبه المرافق (للأوامر المخصصة)
-  final bool enabled; // المرافق ممكن يخفيه
+  final CommandType category;
+  final String iconKey;
+  final String? titleKey;
+  final String? customTitle;
+  final bool enabled;
+  final int order;
 
   const Command({
     required this.id,
@@ -16,8 +18,8 @@ class Command {
     this.titleKey,
     this.customTitle,
     this.enabled = true,
+    this.order = 0,
   }) : assert(titleKey != null || customTitle != null);
 
-  /// النص اللي بيظهر دلوقتي، بلغة التطبيق الحالية
   String get title => customTitle ?? titleKey!.tr();
 }
