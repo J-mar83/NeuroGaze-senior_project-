@@ -11,6 +11,7 @@ import 'package:mobile_app/widgets/primary_button_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
 import 'package:mobile_app/models/user_role.dart';
 import 'package:mobile_app/utils/orientation_aware.dart';
+import 'package:mobile_app/data/device_session.dart';
 
 class Loginscreen extends StatefulWidget {
   final UserRole role; // مين اللي بيسجل دخول: مريض ولا مرافق
@@ -110,8 +111,10 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                             child: PrimaryButton(
                               title: LocaleKeys.loginScreen_buttonlogin.tr(),
                               heigth: 55 ,
-                              onPress: () {
+                              onPress: () async {
                                 if (_formKey.currentState!.validate()) {
+                                  await DeviceSession.save(widget.role); // نحفظ الدور
+                                  if (!mounted) return;
                                   context.goNamed(
                                     widget.role == UserRole.companion
                                         ? AppRoutes.companionShell

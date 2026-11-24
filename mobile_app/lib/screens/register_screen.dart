@@ -11,6 +11,7 @@ import 'package:mobile_app/widgets/primary_button_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
 import 'package:mobile_app/models/user_role.dart';
 import 'package:mobile_app/utils/orientation_aware.dart';
+import 'package:mobile_app/data/device_session.dart';
 
 class RegisterScreen extends StatefulWidget {
   final UserRole role;
@@ -167,8 +168,10 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                     child: PrimaryButton(
                       title: LocaleKeys.registerScreen_register.tr(),
                       heigth: 55,
-                      onPress: () {
+                      onPress: () async {
                         if (_formKey.currentState!.validate()) {
+                          await DeviceSession.save(widget.role); // نحفظ الدور
+                          if (!mounted) return;
                           context.goNamed(
                             widget.role == UserRole.companion
                                 ? AppRoutes.companionShell

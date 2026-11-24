@@ -7,22 +7,19 @@ RouteObserver<ModalRoute<void>>();
 
 enum ScreenOrientation { portrait, landscape }
 
+Future<void> setAppOrientation(ScreenOrientation orientation) {
+  return SystemChrome.setPreferredOrientations(
+    orientation == ScreenOrientation.portrait
+        ? [DeviceOrientation.portraitUp]
+        : [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight],
+  );
+}
+
 /// أي شاشة (State) تضيف `with OrientationAware` وتحدد الاتجاه اللي عايزاه.
 /// الاتجاه بيتطبق لما الشاشة تظهر، ولما نرجع لها بعد ما شاشة فوقها تتقفل.
 mixin OrientationAware<T extends StatefulWidget> on State<T>
 implements RouteAware {
   ScreenOrientation get orientation;
-
-  void _apply() {
-    SystemChrome.setPreferredOrientations(
-      orientation == ScreenOrientation.portrait
-          ? [DeviceOrientation.portraitUp]
-          : [
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight,
-      ],
-    );
-  }
 
   @override
   void didChangeDependencies() {
@@ -38,10 +35,10 @@ implements RouteAware {
   }
 
   @override
-  void didPush() => _apply(); // الشاشة اتفتحت
+  void didPush() => setAppOrientation(orientation); // الشاشة اتفتحت
 
   @override
-  void didPopNext() => _apply(); // شاشة فوقها اتقفلت ورجعنا لها
+  void didPopNext() => setAppOrientation(orientation); // شاشة فوقها اتقفلت
 
   @override
   void didPop() {}

@@ -6,6 +6,7 @@ import 'package:mobile_app/data/fake_data.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/themes/colors_app.dart';
+import 'package:mobile_app/data/device_session.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -30,6 +31,8 @@ class SettingsScreen extends StatelessWidget {
     );
 
     if (ok == true && context.mounted) {
+      await DeviceSession.clear(); // ننسى الدور
+      if (!context.mounted) return;
       context.goNamed(AppRoutes.chooseScreen);
     }
   }

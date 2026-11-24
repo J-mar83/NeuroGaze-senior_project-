@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/routers/routers_generator.dart';
 import 'package:mobile_app/themes/light_dark_themes.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_app/data/app_settings.dart';
+import 'package:mobile_app/data/device_session.dart';
+import 'package:mobile_app/models/user_role.dart';
+import 'package:mobile_app/utils/orientation_aware.dart';
 
-// Always open in Landscape Mode and lock the orientation.
+// Landscape بس لو الجهاز ده جهاز المريض. غير كده Portrait.
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ]);
+  await DeviceSession.load();
+  await setAppOrientation(
+    DeviceSession.role == UserRole.patient
+        ? ScreenOrientation.landscape
+        : ScreenOrientation.portrait,
+  );
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(

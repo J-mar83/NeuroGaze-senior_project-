@@ -10,16 +10,26 @@ import 'package:mobile_app/themes/style_app.dart';
 import 'package:mobile_app/widgets/card_of_command.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
 import 'package:mobile_app/widgets/gaze_button.dart';
+import 'package:mobile_app/utils/orientation_aware.dart';
+import 'package:mobile_app/data/device_session.dart';
 
-class BasicCommands extends StatelessWidget {
+class BasicCommands extends StatefulWidget {
   const BasicCommands({super.key});
+
+  @override
+  State<BasicCommands> createState() => _BasicCommandsState();
+}
+
+class _BasicCommandsState extends State<BasicCommands> with OrientationAware {
+  @override
+  ScreenOrientation get orientation => ScreenOrientation.landscape;
 
   // مكان واحد لتعديل الكروت: العنوان، الأيقونة، الروت
   static final _commands = <({String title, String icon, String route})>[
-    (title: LocaleKeys.basicCommandsScreen_needsCommand.tr(), icon:AssetsApp.needs, route: AppRoutes.loginScreen),
-    (title: LocaleKeys.basicCommandsScreen_careCommand.tr(), icon:AssetsApp.care, route: AppRoutes.loginScreen),
-    (title: LocaleKeys.basicCommandsScreen_comfortCommand.tr(), icon:AssetsApp.comfort, route: AppRoutes.loginScreen),
-    (title: LocaleKeys.basicCommandsScreen_talkCommand.tr(),    icon: AssetsApp.talk, route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_needsCommand.tr(), icon: AssetsApp.needs, route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_careCommand.tr(), icon: AssetsApp.care, route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_comfortCommand.tr(), icon: AssetsApp.comfort, route: AppRoutes.loginScreen),
+    (title: LocaleKeys.basicCommandsScreen_talkCommand.tr(), icon: AssetsApp.talk, route: AppRoutes.loginScreen),
   ];
 
   @override
@@ -36,10 +46,18 @@ class BasicCommands extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    AssetsApp.logo,
-                    width: 50,
-                    height: 50,
+                  GestureDetector(
+                    // مؤقت: ضغطة مطوّلة على اللوجو = خروج (المرافق هو اللي بيعملها)
+                    onLongPress: () async {
+                      await DeviceSession.clear();
+                      if (!context.mounted) return;
+                      context.goNamed(AppRoutes.chooseScreen);
+                    },
+                    child: Image.asset(
+                      AssetsApp.logo,
+                      width: 50,
+                      height: 50,
+                    ),
                   ),
                   Text(
                     LocaleKeys.basicCommandsScreen_titleOfPage.tr(),
@@ -56,7 +74,7 @@ class BasicCommands extends StatelessWidget {
                 child: Row(
                   children: [
                     for (var i = 0; i < _commands.length; i++) ...[
-                      if (i != 0) const HeigthSpacing(heigth: 10),
+                      if (i != 0) const WidthSpacing(width: 10),
                       Expanded(
                         child: CardCommand(
                           title: _commands[i].title,

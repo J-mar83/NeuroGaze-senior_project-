@@ -12,6 +12,9 @@ class CardCommand extends StatelessWidget {
   // false = ضغطة عادية (اختيار الدور والـ Login، لأن المرافق هو اللي بيعملها)
   final bool gaze;
 
+  // اختياري: لو مبعتوش، بيستخدم الستايل الافتراضي من الثيم
+  final TextStyle? titleStyle;
+
   const CardCommand({
     super.key,
     required this.title,
@@ -19,6 +22,7 @@ class CardCommand extends StatelessWidget {
     required this.iconSize,
     required this.onTap,
     this.gaze = true,
+    this.titleStyle,
   });
 
   @override
@@ -35,7 +39,10 @@ class CardCommand extends StatelessWidget {
           ),
         ),
         const HeigthSpacing(heigth: 15),
-        Text(title, style: Theme.of(context).textTheme.titleLarge),
+        Text(
+          title,
+          style: titleStyle ?? Theme.of(context).textTheme.titleLarge,
+        ),
       ],
     );
 
