@@ -122,6 +122,14 @@
     "no": "No",
     "thanks": "Thank you",
     "family": "Call my family"
+  },
+
+  "patientScreen": {
+    "previous": "Previous",
+    "next": "Next",
+    "back": "Back",
+    "sent": "Sent to your companion",
+    "noCommands": "No commands here yet"
   }
 
 

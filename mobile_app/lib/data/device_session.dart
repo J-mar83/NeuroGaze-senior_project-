@@ -8,6 +8,9 @@ class DeviceSession {
   /// الدور الحالي. null = الجهاز لسه ما اتسجلش.
   static UserRole? role;
 
+  /// مؤقتاً: الجهاز ده تابع للمريض p1. هنربطه بمريض حقيقي بالكود في مهمة C4.
+  static String patientId = 'p1';
+
   /// بننادي عليها مرة واحدة في main() قبل ما التطبيق يفتح.
   static Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();

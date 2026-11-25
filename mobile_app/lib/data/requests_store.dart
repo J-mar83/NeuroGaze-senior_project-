@@ -43,6 +43,24 @@ class RequestsStore extends ChangeNotifier {
   CommandRequest requestById(String id) =>
       _requests.firstWhere((r) => r.id == id);
 
+  /// المريض اختار أمر: بنضيف طلب جديد (بيظهر عند المرافق في Activity)
+  void addRequest({
+    required String patientId,
+    required CommandType type,
+    required String title,
+  }) {
+    _requests.add(
+      CommandRequest(
+        id: 'r${DateTime.now().microsecondsSinceEpoch}',
+        patientId: patientId,
+        type: type,
+        title: title,
+        requestedAt: DateTime.now(),
+      ),
+    );
+    notifyListeners();
+  }
+
   /// بيتنادى لما تدوس ✔
   void markDone(String requestId) {
     final request = _requests.firstWhere((r) => r.id == requestId);

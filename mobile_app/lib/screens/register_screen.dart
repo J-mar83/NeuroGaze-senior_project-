@@ -171,7 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                       onPress: () async {
                         if (_formKey.currentState!.validate()) {
                           await DeviceSession.save(widget.role); // نحفظ الدور
-                          if (!mounted) return;
+                          if (!context.mounted) return;
                           context.goNamed(
                             widget.role == UserRole.companion
                                 ? AppRoutes.companionShell

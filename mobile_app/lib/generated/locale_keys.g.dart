@@ -89,5 +89,28 @@ abstract class  LocaleKeys {
   static const companion_logoutMessage = 'companion.logoutMessage';
   static const companion_cancel = 'companion.cancel';
   static const companion = 'companion';
+  static const commands_water = 'commands.water';
+  static const commands_food = 'commands.food';
+  static const commands_toilet = 'commands.toilet';
+  static const commands_air = 'commands.air';
+  static const commands_medicine = 'commands.medicine';
+  static const commands_pain = 'commands.pain';
+  static const commands_nurse = 'commands.nurse';
+  static const commands_doctor = 'commands.doctor';
+  static const commands_pillow = 'commands.pillow';
+  static const commands_blanket = 'commands.blanket';
+  static const commands_light = 'commands.light';
+  static const commands_temperature = 'commands.temperature';
+  static const commands_yes = 'commands.yes';
+  static const commands_no = 'commands.no';
+  static const commands_thanks = 'commands.thanks';
+  static const commands_family = 'commands.family';
+  static const commands = 'commands';
+  static const patientScreen_previous = 'patientScreen.previous';
+  static const patientScreen_next = 'patientScreen.next';
+  static const patientScreen_back = 'patientScreen.back';
+  static const patientScreen_sent = 'patientScreen.sent';
+  static const patientScreen_noCommands = 'patientScreen.noCommands';
+  static const patientScreen = 'patientScreen';
 
 }
