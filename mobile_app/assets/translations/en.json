@@ -1,4 +1,3 @@
-
 {
   "splashScreen": {
     "description_app": "AI focus monitoring system",
@@ -6,10 +5,10 @@
     "language": "Change language",
     "mode": "Change mode"
   },
-  
+
   "chooseScreen":{
-     "patient":"Patient",
-     "companion":"Companion"
+    "patient":"Patient",
+    "companion":"Companion"
   },
 
   "loginScreen":{
@@ -19,7 +18,7 @@
     "descriptionCompanion": "Sign in to continue (Companion)",
     "hintemail": "Enter your email",
     "hintpassword": "Enter your password",
-     "invalidemail":"Invalid email",
+    "invalidemail":"Invalid email",
     "inavlidpass": "Min 6 characters" ,
     "textforget":"Forget password ?",
     "buttonlogin":"Sign In",
@@ -30,7 +29,7 @@
   },
 
   "registerScreen":{
-     "createaccount":"Create Account",
+    "createaccount":"Create Account",
     "descriptionregister": "Caregiver account",
     "descriptionPatient": "Patient account",
     "descriptionCompanion": "Companion account",
@@ -129,7 +128,10 @@
     "next": "Next",
     "back": "Back",
     "sent": "Sent to your companion",
-    "noCommands": "No commands here yet"
+    "noCommands": "No commands here yet",
+    "emergencyCountdown": "Sending emergency alert in",
+    "cancel": "Cancel",
+    "emergencyCancelled": "Emergency cancelled"
   }
 
 

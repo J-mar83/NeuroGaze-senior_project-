@@ -1,9 +1,22 @@
-
+import 'package:flutter/foundation.dart';
 import 'package:mobile_app/models/command.dart';
 import 'package:mobile_app/models/command_request.dart';
+import 'package:mobile_app/models/patient_settings.dart';
 
-class CommandsStore {
-  static final List<Command> _commands = [
+class CommandsStore extends ChangeNotifier {
+  CommandsStore._(); // constructor خاص: محدش يعمل نسخة تانية
+  static final CommandsStore instance = CommandsStore._(); // النسخة الوحيدة
+
+  /// إعدادات المريض (مدة التثبيت...). المرافق هو اللي هيعدلها لاحقاً (C1)
+  PatientSettings _settings = const PatientSettings();
+  PatientSettings get settings => _settings;
+
+  void updateSettings(PatientSettings newSettings) {
+    _settings = newSettings;
+    notifyListeners();
+  }
+
+  final List<Command> _commands = [
     // NEEDS
     const Command(
       id: 'water',
@@ -97,23 +110,20 @@ class CommandsStore {
     ),
   ];
 
-  static List<Command> get all {
-    final commands = _commands
-        .where((command) => command.enabled)
-        .toList();
-
+  /// كل الأوامر المفعّلة مرتبة
+  List<Command> get all {
+    final commands = _commands.where((c) => c.enabled).toList();
     commands.sort((a, b) => a.order.compareTo(b.order));
-
     return commands;
   }
 
-  static List<Command> byCategory(CommandType category) {
-    return all
-        .where((command) => command.category == category)
-        .toList();
+  /// الأوامر المفعّلة داخل فئة معينة، بترتيب المرافق
+  List<Command> enabledIn(CommandType category) {
+    return all.where((c) => c.category == category).toList();
   }
 
-  static List<CommandType> get categories => [
+  /// الفئات اللي بتظهر للمريض (من غير Emergency لأنه زرار ثابت)
+  static const List<CommandType> categories = [
     CommandType.needs,
     CommandType.care,
     CommandType.comfort,

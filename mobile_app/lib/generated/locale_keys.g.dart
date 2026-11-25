@@ -111,6 +111,9 @@ abstract class  LocaleKeys {
   static const patientScreen_back = 'patientScreen.back';
   static const patientScreen_sent = 'patientScreen.sent';
   static const patientScreen_noCommands = 'patientScreen.noCommands';
+  static const patientScreen_emergencyCountdown = 'patientScreen.emergencyCountdown';
+  static const patientScreen_cancel = 'patientScreen.cancel';
+  static const patientScreen_emergencyCancelled = 'patientScreen.emergencyCancelled';
   static const patientScreen = 'patientScreen';
 
 }

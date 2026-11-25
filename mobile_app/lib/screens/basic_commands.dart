@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/data/commands_store.dart';
 import 'package:mobile_app/data/device_session.dart';
@@ -32,10 +33,13 @@ class _BasicCommandsState extends State<BasicCommands> with OrientationAware {
   int _page = 0;
   String? _sentTitle; // لو فيه قيمة: بنعرض رسالة "تم الإرسال"
   Timer? _resetTimer;
+  int? _emergencyCountdown; // لو فيه قيمة: بنعرض عدّاد إلغاء الطوارئ
+  Timer? _countdownTimer;
 
   @override
   void dispose() {
     _resetTimer?.cancel();
+    _countdownTimer?.cancel();
     super.dispose();
   }
 
@@ -69,13 +73,50 @@ class _BasicCommandsState extends State<BasicCommands> with OrientationAware {
     _showSent(command.title);
   }
 
-  void _sendEmergency() {
+  // الطوارئ: بعد التثبيت بنبدأ عدّاد، والمريض ممكن يلغي قبل ما يخلص
+  void _startEmergencyCountdown() {
+    if (_emergencyCountdown != null) return; // العدّاد شغال بالفعل
+    _resetTimer?.cancel(); // لو كانت شاشة "تم الإرسال" ظاهرة
+    _countdownTimer?.cancel();
+    setState(() {
+      _sentTitle = null;
+      _emergencyCountdown =
+          CommandsStore.instance.settings.effectiveCancelSeconds;
+    });
+    _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) {
+        timer.cancel();
+        return;
+      }
+      final left = (_emergencyCountdown ?? 1) - 1;
+      if (left <= 0) {
+        timer.cancel();
+        _confirmEmergency();
+      } else {
+        setState(() => _emergencyCountdown = left);
+      }
+    });
+  }
+
+  void _cancelEmergency() {
+    _countdownTimer?.cancel();
+    setState(() => _emergencyCountdown = null); // رجوع لنفس الشاشة
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(LocaleKeys.patientScreen_emergencyCancelled.tr()),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _confirmEmergency() {
     final title = LocaleKeys.basicCommandsScreen_emergencyCommand.tr();
     RequestsStore.instance.addRequest(
       patientId: DeviceSession.patientId,
       type: CommandType.emergency,
       title: title,
     );
+    setState(() => _emergencyCountdown = null);
     _showSent(title);
   }
 
@@ -240,59 +281,106 @@ class _BasicCommandsState extends State<BasicCommands> with OrientationAware {
         ? LocaleKeys.patientScreen_back.tr()
         : LocaleKeys.patientScreen_previous.tr();
 
+    // الصف ده دايماً LTR: السابق على شمال الشاشة والتالي على اليمين،
+    // حتى لو اللغة عربي (من غير كده Flutter بيقلب الترتيب)
     return SizedBox(
       height: height,
-      child: Row(
-        children: [
-          Expanded(
-            flex: 3,
-            child: showPrevious
-                ? _navButton(
-              icon: Icons.arrow_back_ios_new,
-              label: previousLabel,
-              dwell: dwell,
-              onActivated: () => _previous(page, pageCount),
-            )
-                : const SizedBox(),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            flex: 4,
-            child: GazeButton(
-              color: const Color(0xFFB75151),
-              progressColor: Colors.white,
-              dwell: emergencyDwell, // أطول عشان ما يتفعّلش بالغلط
-              onActivated: _sendEmergency,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.warning_rounded,
-                    color: Colors.white,
-                    size: 24,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(
-                    LocaleKeys.basicCommandsScreen_emergencyCommand.tr(),
-                    style: theme.textTheme.bodySmall?.copyWith(
+      child: Directionality(
+        textDirection: ui.TextDirection.ltr,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: showPrevious
+                  ? _navButton(
+                icon: Icons.arrow_back_ios_new,
+                label: previousLabel,
+                dwell: dwell,
+                onActivated: () => _previous(page, pageCount),
+              )
+                  : const SizedBox(),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              flex: 4,
+              child: GazeButton(
+                color: const Color(0xFFB75151),
+                progressColor: Colors.white,
+                dwell: emergencyDwell, // أطول عشان ما يتفعّلش بالغلط
+                onActivated: _startEmergencyCountdown,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.warning_rounded,
                       color: Colors.white,
+                      size: 24,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Text(
+                      LocaleKeys.basicCommandsScreen_emergencyCommand.tr(),
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
+            const SizedBox(width: 12),
+            Expanded(
+              flex: 3,
+              child: showNext
+                  ? _navButton(
+                icon: Icons.arrow_forward_ios,
+                label: LocaleKeys.patientScreen_next.tr(),
+                dwell: dwell,
+                onActivated: () => _next(page, pageCount),
+              )
+                  : const SizedBox(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEmergencyCountdown(ThemeData theme, Size size, Duration dwell) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            Icons.warning_rounded,
+            color: Color(0xFFB75151),
+            size: 56,
           ),
-          const SizedBox(width: 12),
-          Expanded(
-            flex: 3,
-            child: showNext
-                ? _navButton(
-              icon: Icons.arrow_forward_ios,
-              label: LocaleKeys.patientScreen_next.tr(),
+          const SizedBox(height: 8),
+          Text(
+            LocaleKeys.patientScreen_emergencyCountdown.tr(),
+            style: theme.textTheme.titleLarge,
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            '$_emergencyCountdown',
+            style: theme.textTheme.displayLarge?.copyWith(
+              color: const Color(0xFFB75151),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: size.width * 0.5,
+            height: size.height * 0.25,
+            child: GazeButton(
               dwell: dwell,
-              onActivated: () => _next(page, pageCount),
-            )
-                : const SizedBox(),
+              onActivated: _cancelEmergency,
+              child: Center(
+                child: Text(
+                  LocaleKeys.patientScreen_cancel.tr(),
+                  style: theme.textTheme.titleLarge,
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -313,6 +401,10 @@ class _BasicCommandsState extends State<BasicCommands> with OrientationAware {
             builder: (context, _) {
               final store = CommandsStore.instance;
               final settings = store.settings;
+
+              if (_emergencyCountdown != null) {
+                return _buildEmergencyCountdown(theme, size, settings.dwell);
+              }
 
               final commands = _category == null
                   ? <Command>[]
