@@ -7,7 +7,7 @@ import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/themes/assets_app.dart';
 import 'package:mobile_app/themes/style_app.dart';
-import 'package:mobile_app/widgets/card_of_command.dart';
+import 'package:mobile_app/widgets/card_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class ChooseScreen extends StatelessWidget {
