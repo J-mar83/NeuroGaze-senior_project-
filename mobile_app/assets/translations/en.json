@@ -1,4 +1,3 @@
-
 {
   "splashScreen": {
     "description_app": "AI focus monitoring system",
@@ -6,18 +5,20 @@
     "language": "Change language",
     "mode": "Change mode"
   },
-  
+
   "chooseScreen":{
-     "patient":"Patient",
-     "companion":"Companion"
+    "patient":"Patient",
+    "companion":"Companion"
   },
 
   "loginScreen":{
     "welcome":"Welcome Back",
     "descriptionlogin":"Sign in to continue (caregiver)",
+    "descriptionPatient": "Sign in to continue (Patient)",
+    "descriptionCompanion": "Sign in to continue (Companion)",
     "hintemail": "Enter your email",
     "hintpassword": "Enter your password",
-     "invalidemail":"Invalid email",
+    "invalidemail":"Invalid email",
     "inavlidpass": "Min 6 characters" ,
     "textforget":"Forget password ?",
     "buttonlogin":"Sign In",
@@ -28,8 +29,12 @@
   },
 
   "registerScreen":{
-     "createaccount":"Create Account",
+    "createaccount":"Create Account",
     "descriptionregister": "Caregiver account",
+    "descriptionPatient": "Patient account",
+    "descriptionCompanion": "Companion account",
+    "invalidname": "Please enter your name",
+    "passwordsDontMatch": "Passwords do not match",
     "name":"Full Name",
     "hintemail": "Enter your email",
     "hintpassword": "Enter your password",
@@ -50,7 +55,85 @@
     "comfortCommand":"Comfort",
     "talkCommand":"Talk",
     "emergencyCommand":"Emergency"
+  },
+
+  "companion": {
+    "navPatients": "Patients",
+    "navActivity": "Activity",
+    "navHistory": "History",
+    "navSettings": "Settings",
+
+    "searchPatients": "Search patients",
+    "noPatients": "No patients found",
+    "yearsOld": "{} years",
+
+    "pending": "Pending",
+    "done": "Done",
+    "requestedAt": "Requested {}",
+    "doneAt": "Done {}",
+
+    "notes": "Notes",
+    "activityLog": "Activity log",
+    "noActivityYet": "No activity yet",
+
+    "pendingCount": "{} pending",
+    "allCaughtUp": "All caught up",
+
+    "completedCount": "{} completed",
+    "noHistoryYet": "No history yet",
+
+    "requestDetails": "Request details",
+    "patient": "Patient",
+    "requested": "Requested",
+    "executed": "Executed",
+    "notYet": "Not yet",
+    "responseTime": "Response time",
+    "lessThanMinute": "Less than a minute",
+    "minutes": "{} min",
+    "hoursMinutes": "{} h {} min",
+    "markAsDone": "Mark as done",
+
+    "role": "Companion",
+    "email": "Email",
+    "emergencyNumber": "Emergency number",
+    "darkMode": "Dark mode",
+    "language": "Language",
+    "logout": "Log out",
+    "logoutQuestion": "Log out?",
+    "logoutMessage": "You will return to the start screen.",
+    "cancel": "Cancel"
+  },
+
+  "commands": {
+    "water": "Water",
+    "food": "Food",
+    "toilet": "Toilet",
+    "air": "Fresh air",
+    "medicine": "Medicine",
+    "pain": "I'm in pain",
+    "nurse": "Call the nurse",
+    "doctor": "Call the doctor",
+    "pillow": "Adjust pillow",
+    "blanket": "Blanket",
+    "light": "Light",
+    "temperature": "Temperature",
+    "yes": "Yes",
+    "no": "No",
+    "thanks": "Thank you",
+    "family": "Call my family"
+  },
+
+  "patientScreen": {
+    "previous": "Previous",
+    "next": "Next",
+    "back": "Back",
+    "sent": "Sent to your companion",
+    "noCommands": "No commands here yet",
+    "emergencyCountdown": "Sending emergency alert in",
+    "cancel": "Cancel",
+    "emergencyCancelled": "Emergency cancelled"
   }
+
 
 
 }

@@ -9,15 +9,21 @@ import 'package:mobile_app/widgets/input_field_widget.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/widgets/primary_button_widget.dart';
 import 'package:mobile_app/widgets/spacing_widget.dart';
+import 'package:mobile_app/models/user_role.dart';
+import 'package:mobile_app/utils/orientation_aware.dart';
+import 'package:mobile_app/data/device_session.dart';
 
 class Loginscreen extends StatefulWidget {
-  const Loginscreen({super.key});
+  final UserRole role; // مين اللي بيسجل دخول: مريض ولا مرافق
+  const Loginscreen({super.key, this.role = UserRole.patient});
 
   @override
   State<Loginscreen> createState() => _LoginscreenState();
 }
 
-class _LoginscreenState extends State<Loginscreen> {
+class _LoginscreenState extends State<Loginscreen> with OrientationAware {
+  @override
+  ScreenOrientation get orientation => ScreenOrientation.portrait;
   bool _hidePass = true;
   final _formKey = GlobalKey<FormState>();
   final _emailCtrl = TextEditingController();
@@ -50,7 +56,9 @@ class _LoginscreenState extends State<Loginscreen> {
                           ),
                           const HeigthSpacing(heigth: 8),
                           Text(
-                            LocaleKeys.loginScreen_descriptionlogin.tr(),
+                            widget.role == UserRole.companion
+                                ? LocaleKeys.loginScreen_descriptionCompanion.tr()
+                                : LocaleKeys.loginScreen_descriptionPatient.tr(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           const HeigthSpacing(heigth: 16),
@@ -103,10 +111,14 @@ class _LoginscreenState extends State<Loginscreen> {
                             child: PrimaryButton(
                               title: LocaleKeys.loginScreen_buttonlogin.tr(),
                               heigth: 55 ,
-                              onPress: () {
+                              onPress: () async {
                                 if (_formKey.currentState!.validate()) {
-                                  context.pushNamed(
-                                    AppRoutes.basicCommandScreen,
+                                  await DeviceSession.save(widget.role); // نحفظ الدور
+                                  if (!context.mounted) return;
+                                  context.goNamed(
+                                    widget.role == UserRole.companion
+                                        ? AppRoutes.companionShell
+                                        : AppRoutes.basicCommandScreen,
                                   );
                                 }
                               },
@@ -158,8 +170,11 @@ class _LoginscreenState extends State<Loginscreen> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  context.pushNamed(AppRoutes.registerScreen);
-                                },
+                                  context.pushNamed(
+                                    AppRoutes.registerScreen,
+                                    extra: widget.role,
+                                  );
+                                  },
                                 child: Text(
                                   LocaleKeys.loginScreen_createaccount.tr(),
                                 ),

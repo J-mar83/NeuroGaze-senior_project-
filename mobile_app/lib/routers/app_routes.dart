@@ -4,4 +4,7 @@ class AppRoutes{
   static const String loginScreen ="/loginscreen";
   static const String registerScreen ="/registerScreen";
   static const String basicCommandScreen="/basicCommandScreen";
+  static const String companionShell = "/companionShell";
+  static const String patientDetails = "/patientDetails";
+  static const String requestDetails = "/requestDetails";
 }
