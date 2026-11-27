@@ -7,6 +7,7 @@ import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/themes/colors_app.dart';
 import 'package:mobile_app/data/device_session.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -46,7 +47,7 @@ class SettingsScreen extends StatelessWidget {
           LocaleKeys.companion_navSettings.tr(),
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        const SizedBox(height: 16),
+        const HeightSpacing(height: 16),
         Card(
           child: Column(
             children: [
@@ -70,7 +71,7 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        const HeightSpacing(height: 16),
         Card(
           child: Column(
             children: [
@@ -104,7 +105,7 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 24),
+        const HeightSpacing(height: 24),
         OutlinedButton.icon(
           onPressed: () => _confirmLogout(context),
           icon: const Icon(Icons.logout),

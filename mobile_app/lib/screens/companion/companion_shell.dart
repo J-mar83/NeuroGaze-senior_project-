@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/data/requests_store.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
-import 'package:mobile_app/screens/companion/activity_screen.dart';
-import 'package:mobile_app/screens/companion/dashboard_screen.dart';
-import 'package:mobile_app/screens/companion/history_screen.dart';
-import 'package:mobile_app/screens/companion/settings_screen.dart';
+import 'package:mobile_app/screens/Companion/activity_screen.dart';
+import 'package:mobile_app/screens/Companion/dashboard_screen.dart';
+import 'package:mobile_app/screens/Companion/history_screen.dart';
+import 'package:mobile_app/screens/Companion/settings_screen.dart';
 import 'package:mobile_app/utils/orientation_aware.dart';
 
 class CompanionShell extends StatefulWidget {

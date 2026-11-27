@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/themes/colors_app.dart';
 import 'package:mobile_app/themes/fonts_app.dart';
+import 'package:mobile_app/themes/otp_themes.dart';
 import 'package:mobile_app/themes/style_app.dart';
 
 // themes for light
@@ -29,9 +30,15 @@ class LightThemes {
         backgroundColor: AppColors.buttoncolorLight,
         foregroundColor: AppColors.textcolorLight,
         textStyle: StyleApp.textButton,
-        shape: RoundedRectangleBorder(
-          borderRadius: StyleApp.cardRadius,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: StyleApp.cardRadius),
+      ),
+    ),
+
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(
+        backgroundColor: AppColors.buttoncolorLight,
+        foregroundColor: AppColors.textcolorLight,
+        shape: RoundedRectangleBorder(borderRadius: StyleApp.cardRadius),
       ),
     ),
 
@@ -69,6 +76,16 @@ class LightThemes {
 
       contentPadding: StyleApp.inputPadding,
     ),
+
+    extensions: [
+  OtpTheme(
+    fillColor: AppColors.containercolorLight,
+    borderColor: AppColors.bordercontainercolorLight,
+    selectedColor: AppColors.primaryColor,
+    textColor: AppColors.textcolorLight,
+    errorColor: AppColors.emergency,
+  ),
+],
   );
 }
 
@@ -87,9 +104,7 @@ class DarkThemes {
 
     textTheme: TextTheme(
       titleLarge: StyleApp.largeText.copyWith(color: AppColors.textcolorDark),
-      labelMedium: StyleApp.mediumText.copyWith(
-        color: AppColors.textcolorDark,
-      ),
+      labelMedium: StyleApp.mediumText.copyWith(color: AppColors.textcolorDark),
       bodySmall: StyleApp.smallText.copyWith(color: AppColors.textcolorDark),
     ),
 
@@ -98,9 +113,7 @@ class DarkThemes {
         backgroundColor: AppColors.buttoncolorDark,
         foregroundColor: AppColors.textcolorDark,
         textStyle: StyleApp.textButton,
-        shape: RoundedRectangleBorder(
-          borderRadius: StyleApp.cardRadius,
-        ),
+        shape: RoundedRectangleBorder(borderRadius: StyleApp.cardRadius),
       ),
     ),
 
@@ -139,5 +152,15 @@ class DarkThemes {
 
       contentPadding: StyleApp.inputPadding,
     ),
+
+   extensions: [
+  OtpTheme(
+    fillColor: AppColors.containercolorDark,
+    borderColor: AppColors.bordercontainercolorDark,
+    selectedColor: AppColors.primaryColor,
+    textColor: AppColors.textcolorDark,
+    errorColor: AppColors.emergency,
+  ),
+],
   );
 }

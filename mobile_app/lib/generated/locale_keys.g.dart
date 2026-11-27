@@ -115,5 +115,27 @@ abstract class  LocaleKeys {
   static const patientScreen_cancel = 'patientScreen.cancel';
   static const patientScreen_emergencyCancelled = 'patientScreen.emergencyCancelled';
   static const patientScreen = 'patientScreen';
+  static const passSuccess_change = 'passSuccess.change';
+  static const passSuccess_DescriptionChange = 'passSuccess.DescriptionChange';
+  static const passSuccess_button = 'passSuccess.button';
+  static const passSuccess = 'passSuccess';
+  static const forgetPass_title = 'forgetPass.title';
+  static const forgetPass_descriptionForget = 'forgetPass.descriptionForget';
+  static const forgetPass_labelForget = 'forgetPass.labelForget';
+  static const forgetPass_buttonForget = 'forgetPass.buttonForget';
+  static const forgetPass = 'forgetPass';
+  static const otp_title = 'otp.title';
+  static const otp_descriptionOtp = 'otp.descriptionOtp';
+  static const otp_buttonOtp = 'otp.buttonOtp';
+  static const otp_askCode = 'otp.askCode';
+  static const otp_resend = 'otp.resend';
+  static const otp = 'otp';
+  static const NewPass_title = 'NewPass.title';
+  static const NewPass_descriptionNew = 'NewPass.descriptionNew';
+  static const NewPass_labelNewPass = 'NewPass.labelNewPass';
+  static const NewPass_labelComfirm = 'NewPass.labelComfirm';
+  static const NewPass_buttonNew = 'NewPass.buttonNew';
+  static const NewPass_notMatch = 'NewPass.notMatch';
+  static const NewPass = 'NewPass';
 
 }

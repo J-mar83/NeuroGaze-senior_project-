@@ -5,6 +5,7 @@ import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/models/command_request.dart';
 import 'package:mobile_app/models/command_type_ext.dart';
 import 'package:mobile_app/themes/colors_app.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class RequestDetailsScreen extends StatelessWidget {
   final String requestId;
@@ -51,10 +52,10 @@ class RequestDetailsScreen extends StatelessWidget {
                   child: Icon(request.type.icon, size: 40, color: color),
                 ),
               ),
-              const SizedBox(height: 12),
+              const HeightSpacing(height: 12),
               Center(child: Text(request.title, style: textTheme.titleLarge)),
               Center(child: Text(request.type.label, style: textTheme.bodyMedium)),
-              const SizedBox(height: 16),
+              const HeightSpacing(height: 16),
               Card(
                 child: Column(
                   children: [
@@ -95,7 +96,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 ),
               ),
               if (!request.isDone) ...[
-                const SizedBox(height: 24),
+                const HeightSpacing(height: 24),
                 FilledButton.icon(
                   onPressed: () => store.markDone(request.id),
                   icon: const Icon(Icons.check),

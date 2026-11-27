@@ -29,6 +29,10 @@ class StyleApp {
     fontWeight: FontWeight.bold,
   );
 
+  static ButtonStyle button = ButtonStyle(
+    fixedSize: WidgetStatePropertyAll(Size(41.w, 41.h)),
+  );
+
   // Border Radius
   static BorderRadius cardRadius = BorderRadius.circular(28.r);
   static BorderRadius inputRadius = BorderRadius.circular(18.r);

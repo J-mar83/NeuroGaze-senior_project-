@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/data/requests_store.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/widgets/request_tile.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class ActivityScreen extends StatelessWidget {
   const ActivityScreen({super.key});
@@ -25,10 +26,10 @@ class ActivityScreen extends StatelessWidget {
                 LocaleKeys.companion_navActivity.tr(),
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
-              const SizedBox(height: 4),
+              const HeightSpacing(height: 4),
               Text(LocaleKeys.companion_pendingCount
                   .tr(args: ['${pending.length}'])),
-              const SizedBox(height: 12),
+              const HeightSpacing(height: 12),
               Expanded(
                 child: pending.isEmpty
                     ? Center(child: Text(LocaleKeys.companion_allCaughtUp.tr()))

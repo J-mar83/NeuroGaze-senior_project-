@@ -71,7 +71,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           builder: (context, mode, _) {
             return MaterialApp.router(
               debugShowCheckedModeBanner: false,
-
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,

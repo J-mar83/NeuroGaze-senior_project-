@@ -6,6 +6,7 @@ import 'package:mobile_app/data/requests_store.dart';
 import 'package:mobile_app/generated/locale_keys.g.dart';
 import 'package:mobile_app/routers/app_routes.dart';
 import 'package:mobile_app/widgets/patient_card.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -32,7 +33,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             LocaleKeys.companion_navPatients.tr(),
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          const SizedBox(height: 12),
+          const HeightSpacing(height: 12),
           TextField(
             onChanged: (value) => setState(() => _query = value),
             decoration: InputDecoration(
@@ -43,7 +44,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          const HeightSpacing(height: 16),
           Expanded(
             child: filtered.isEmpty
                 ? Center(child: Text(LocaleKeys.companion_noPatients.tr()))

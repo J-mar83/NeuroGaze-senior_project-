@@ -9,6 +9,7 @@ import 'package:mobile_app/themes/assets_app.dart';
 import 'package:mobile_app/themes/style_app.dart';
 import 'package:mobile_app/widgets/card_widget.dart';
 import 'package:mobile_app/utils/orientation_aware.dart';
+import 'package:mobile_app/widgets/spacing_widget.dart';
 
 class ChooseScreen extends StatefulWidget {
   const ChooseScreen({super.key});
@@ -38,10 +39,9 @@ class _ChooseScreenState extends State<ChooseScreen> with OrientationAware {
         iconCommand: icon,
         iconSize: height * 0.55,
         onTap: () => context.pushNamed(AppRoutes.loginScreen, extra: role),
-      )
-          .animate(delay: delay)
-          .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
-          .slideY(begin: 0.15, end: 0, duration: 600.ms),
+      ).animate(delay: delay)
+       .fadeIn(duration: 600.ms, curve: Curves.easeOutCubic)
+       .slideY(begin: 0.15, end: 0, duration: 600.ms),
     );
   }
 
@@ -53,7 +53,7 @@ class _ChooseScreenState extends State<ChooseScreen> with OrientationAware {
           builder: (context, constraints) {
             // كل كارت 36% من ارتفاع الشاشة المتاحة. غيّر الرقم لو عايز أكبر/أصغر
             final cardHeight = constraints.maxHeight * 0.36;
-
+            
             return Center(
               child: Padding(
                 padding: StyleApp.pagePadding,
@@ -67,7 +67,7 @@ class _ChooseScreenState extends State<ChooseScreen> with OrientationAware {
                       delay: Duration.zero,
                       height: cardHeight,
                     ),
-                    const SizedBox(height: 24),
+                    const HeightSpacing(height: 24,),
                     _roleCard(
                       title: LocaleKeys.chooseScreen_companion.tr(),
                       icon: AssetsApp.companion,

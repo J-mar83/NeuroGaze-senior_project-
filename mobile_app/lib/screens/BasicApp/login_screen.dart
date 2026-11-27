@@ -49,19 +49,19 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                 children:
                     [
                           Image.asset(AssetsApp.logo, width: 100, height: 100),
-                          const HeigthSpacing(heigth: 8),
+                          const HeightSpacing(height: 8),
                           Text(
                             LocaleKeys.loginScreen_welcome.tr(),
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
-                          const HeigthSpacing(heigth: 8),
+                          const HeightSpacing(height: 8),
                           Text(
                             widget.role == UserRole.companion
                                 ? LocaleKeys.loginScreen_descriptionCompanion.tr()
                                 : LocaleKeys.loginScreen_descriptionPatient.tr(),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          const HeigthSpacing(heigth: 16),
+                          const HeightSpacing(height: 16),
                           // TextField for login
                           InputField(
                             hintText: LocaleKeys.loginScreen_hintemail.tr(),
@@ -72,7 +72,7 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                                 ? LocaleKeys.loginScreen_invalidemail.tr()
                                 : null,
                           ),
-                          const HeigthSpacing(heigth: 16),
+                          const HeightSpacing(height: 16),
 
                           InputField(
                             hintText: LocaleKeys.loginScreen_hintpassword.tr(),
@@ -93,19 +93,21 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                                 ? LocaleKeys.loginScreen_inavlidpass.tr()
                                 : null,
                           ),
-                          const HeigthSpacing(heigth: 8),
+                          const HeightSpacing(height: 8),
                           //  button forget pass
                           Align(
                             alignment: Alignment.centerLeft,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.pushNamed(AppRoutes.forgetPass);
+                              },
                               child: Text(
                                 LocaleKeys.loginScreen_textforget.tr(),
                               ),
                             ),
                           ),
                           // button login
-                          const HeigthSpacing(heigth: 8),
+                          const HeightSpacing(height: 8),
                           SizedBox(
                             width: double.infinity,
                             child: PrimaryButton(
@@ -124,7 +126,7 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                               },
                             ),
                           ),
-                          const HeigthSpacing(heigth: 8),
+                          const HeightSpacing(height: 8),
                           // ask or
                           Row(
                             children: [
@@ -141,7 +143,7 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                               const Expanded(child: Divider()),
                             ],
                           ),
-                          const HeigthSpacing(heigth: 16),
+                          const HeightSpacing(height: 16),
                           // login by google
                           SizedBox(
                             width: double.infinity,
@@ -160,7 +162,7 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                             ),
                           ),
                           // create account
-                          const HeigthSpacing(heigth: 50),
+                          const HeightSpacing(height: 50),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -181,10 +183,9 @@ class _LoginscreenState extends State<Loginscreen> with OrientationAware {
                               ),
                             ],
                           ),
-                        ]
-                        .animate(interval: 80.ms)
-                        .fadeIn(duration: 500.ms)
-                        .slideY(
+                        ].animate(interval: 80.ms)
+                         .fadeIn(duration: 500.ms)
+                         .slideY(
                           begin: 0.25,
                           end: 0,
                           curve: Curves.easeOutCubic,

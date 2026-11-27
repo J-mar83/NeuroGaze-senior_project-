@@ -29,17 +29,17 @@ class SplashContent extends StatelessWidget {
             height: logoSize,
           ),
 
-           HeigthSpacing(heigth: space),
+           HeightSpacing(height: space),
 
           Text("NeuroGaze", style: textTheme.titleLarge),
-           HeigthSpacing(heigth: space),
+           HeightSpacing(height: space),
           Text(
             LocaleKeys.splashScreen_description_app.tr(),
             style: textTheme.labelMedium,
           ),
-           HeigthSpacing(heigth: space),
+          HeightSpacing(height: space),
           const HeartbeatAnimation(),
-          HeigthSpacing(heigth: space),
+          HeightSpacing(height: space),
           Text(
             LocaleKeys.splashScreen_syncing.tr(),
             style: textTheme.bodySmall,

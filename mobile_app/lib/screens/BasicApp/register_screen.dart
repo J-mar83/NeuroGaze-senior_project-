@@ -56,33 +56,31 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                 children:
                 [
                   Image.asset(AssetsApp.logo, width: 100, height: 100),
-                  const HeigthSpacing(heigth: 8),
+                  const HeightSpacing(height: 8),
                   Text(
                     LocaleKeys.registerScreen_createaccount.tr(),
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  const HeigthSpacing(heigth: 8),
+                  const HeightSpacing(height: 8),
                   Text(
                     widget.role == UserRole.companion
-                        ? LocaleKeys.registerScreen_descriptionCompanion
-                        .tr()
-                        : LocaleKeys.registerScreen_descriptionPatient
-                        .tr(),
+                        ? LocaleKeys.registerScreen_descriptionCompanion.tr()
+                        : LocaleKeys.registerScreen_descriptionPatient.tr(),
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  const HeigthSpacing(heigth: 16),
+                  const HeightSpacing(height: 16),
 
                   // Name
                   InputField(
                     hintText: LocaleKeys.registerScreen_name.tr(),
-                    prefix: const Icon(Icons.person_2_outlined),
+                    prefix: const Icon(Icons.person_outlined),
                     controller: _nameCtrl,
                     keyboardType: TextInputType.name,
                     validator: (v) => (v == null || v.trim().isEmpty)
                         ? LocaleKeys.registerScreen_invalidname.tr()
                         : null,
                   ),
-                  const HeigthSpacing(heigth: 8),
+                  const HeightSpacing(height: 8),
 
                   // Email
                   InputField(
@@ -94,12 +92,11 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                         ? LocaleKeys.registerScreen_invalidemail.tr()
                         : null,
                   ),
-                  const HeigthSpacing(heigth: 8),
+                   const HeightSpacing(height: 8),
 
                   // Password
                   InputField(
-                    hintText: LocaleKeys.registerScreen_hintpassword
-                        .tr(),
+                    hintText: LocaleKeys.registerScreen_hintpassword.tr(),
                     prefix: const Icon(Icons.lock_outline),
                     controller: _passwordCtrl,
                     obscureText: _hidePass,
@@ -117,12 +114,11 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                         ? LocaleKeys.registerScreen_inavlidpass.tr()
                         : null,
                   ),
-                  const HeigthSpacing(heigth: 8),
+                  const HeightSpacing(height: 8),
 
                   // Confirm password
                   InputField(
-                    hintText: LocaleKeys.registerScreen_hintconfirmpass
-                        .tr(),
+                    hintText: LocaleKeys.registerScreen_hintconfirmpass.tr(),
                     prefix: const Icon(Icons.lock_outline),
                     controller: _confirmCtrl,
                     obscureText: _hideConfirm,
@@ -137,16 +133,14 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                           setState(() => _hideConfirm = !_hideConfirm),
                     ),
                     validator: (v) => (v != _passwordCtrl.text)
-                        ? LocaleKeys.registerScreen_passwordsDontMatch
-                        .tr()
+                        ? LocaleKeys.registerScreen_passwordsDontMatch.tr()
                         : null,
                   ),
-                  const HeigthSpacing(heigth: 8),
+                  const HeightSpacing(height: 8),
 
                   // Emergency phone
                   InputField(
-                    hintText: LocaleKeys.registerScreen_hintemergency
-                        .tr(),
+                    hintText: LocaleKeys.registerScreen_hintemergency.tr(),
                     prefix: const Icon(Icons.phone),
                     controller: _phoneCtrl,
                     keyboardType: TextInputType.phone,
@@ -160,7 +154,7 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                           : LocaleKeys.registerScreen_invalidnum.tr();
                     },
                   ),
-                  const HeigthSpacing(heigth: 30),
+                  const HeightSpacing(height: 30),
 
                   // Register button
                   SizedBox(
@@ -181,7 +175,7 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                       },
                     ),
                   ),
-                  const HeigthSpacing(heigth: 40),
+                  const HeightSpacing(height: 40),
 
                   // Already have an account?
                   Row(
@@ -204,10 +198,9 @@ class _RegisterScreenState extends State<RegisterScreen> with OrientationAware {
                       ),
                     ],
                   ),
-                ]
-                    .animate(interval: 80.ms)
-                    .fadeIn(duration: 500.ms)
-                    .slideY(
+                ].animate(interval: 80.ms)
+                 .fadeIn(duration: 500.ms)
+                 .slideY(
                   begin: 0.25,
                   end: 0,
                   curve: Curves.easeOutCubic,

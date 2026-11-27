@@ -38,7 +38,7 @@ class CardCommand extends StatelessWidget {
             fit: BoxFit.contain,
           ),
         ),
-        const HeigthSpacing(heigth: 15),
+        const HeightSpacing(height: 15),
         Text(
           title,
           style: titleStyle ?? Theme.of(context).textTheme.titleLarge,

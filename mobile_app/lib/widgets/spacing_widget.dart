@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+ class HeightSpacing extends StatelessWidget {
+  final double? height;
 
-class HeigthSpacing extends StatelessWidget {
-  final double? heigth;
-
-  const HeigthSpacing({
+  const HeightSpacing({
     super.key,
-    this.heigth,
+    this.height
     });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: heigth?.h);
+    return SizedBox(height: height?.h);
   }
 }
 

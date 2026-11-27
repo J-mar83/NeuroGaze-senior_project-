@@ -7,4 +7,5 @@ class AssetsApp {
   static const talk ="assets/images/talks.png";
   static const comfort ="assets/images/comfort.png";
   static const care ="assets/images/care.png";
+  static const success ="assets/images/success.png";
 }

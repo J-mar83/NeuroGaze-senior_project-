@@ -8,17 +8,20 @@ class PrimaryButton extends StatelessWidget {
 
   const PrimaryButton({
     super.key,
-     this.title,
+    this.title,
     this.heigth,
     this.onPress,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onPress, 
-    style: ElevatedButton.styleFrom(
-      fixedSize: Size(double.infinity, heigth ?? 50.h),
-    ),
-    child: Text(title ?? "No Text"), );
+    return SizedBox(
+      width: double.infinity,
+      height: heigth ?? 50.h,
+      child: ElevatedButton(
+        onPressed: onPress,
+        child: Text(title ?? "No Text"),
+      ),
+    );
   }
 }

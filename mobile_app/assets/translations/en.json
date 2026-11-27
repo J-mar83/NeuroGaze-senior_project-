@@ -132,8 +132,36 @@
     "emergencyCountdown": "Sending emergency alert in",
     "cancel": "Cancel",
     "emergencyCancelled": "Emergency cancelled"
+  },
+
+  "passSuccess":{
+    "change":"Password Changed!",
+    "DescriptionChange":"Your password has been changed successfully.",
+    "button":"Back to Login"
+  },
+
+  "forgetPass":{
+   "title":"Forgot Password?",
+   "descriptionForget":"Don't worry! It occurs. Please enter the email address linked with your account.",
+   "labelForget":"Enter your email",
+   "buttonForget":"Send Code"
+  },
+
+  "otp":{
+    "title":"OTP Verification",
+   "descriptionOtp":"Enter the verification code we just sent on your email address.",
+   "buttonOtp":"Verify",
+   "askCode":"Didn’t received code?",
+   "resend":"Resend"
+  },
+
+  "NewPass":{
+    "title":"Create new password",
+   "descriptionNew":"Your new password must be unique from those previously used.",
+   "labelNewPass":"New Password",
+   "labelComfirm":"Confirm Password",
+   "buttonNew":"Reset Password",
+   "notMatch":"This password not match!!! "
   }
-
-
 
 }
